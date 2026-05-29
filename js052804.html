@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dis"></div>
+
+    <script>
+        function loaditem(){
+            // new promise((resolve, reject)=>{
+            //      resolve(fetch(data.json ))
+            //})
+            return fetch( "data.json" )
+
+            // then((v)=>{ 
+            //      let res = v.json() 
+            //      return res 
+            // })
+            .then( (res) => { 
+                return res.json()
+            })
+        }
+
+        loaditem()
+
+        .then( (data) =>{
+            let dis = document.querySelector("#dis")
+            let html =''
+            data.forEach( (item) =>{
+                html += ` ${item.name} : ${item.price}원 <br>`
+            })
+            dis.innerHTML = html 
+        })
+    
+        .catch( (err) =>{
+            console.error( "전송오류", err)
+        })
+    </script>
+</body>
+</html>

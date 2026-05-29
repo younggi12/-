@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 방법 1: 생성자 함수
+        function Book(title, page, done = false) {
+            this.ti = title
+            this.pa = page
+            this.do = done
+            this.finish = function () {
+                return `${this.ti}책은 현재 ${this.do == false ? "읽는중" : "완독"}이며 총 ${this.pa}페이지 입니다`
+            }
+        }
+
+        let myBook = new Book("javascript", 300, false)
+        document.write(myBook.finish())  // mybook → myBook 수정
+
+        document.write("<br>")
+
+        // 방법 2: 클래스
+        class Book2 {
+            constructor(title, page, done = false) {
+                this.ti = title
+                this.pa = page
+                this.do = done
+            }
+            finish() {
+                return `${this.ti}책은 현재 ${this.do == false ? "읽는중" : "완독"}이며 총 ${this.pa}페이지 입니다`
+            }
+        }
+
+        let myBook2 = new Book2("javascript", 300, true)
+        document.write(myBook2.finish())
+    </script>
+</body>
+</html>

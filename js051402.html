@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문구점</title>
+</head>
+<style>
+    label{
+        display: block;
+    }
+</style>
+
+<body>
+    <!-- 문구이름을 출력해서 (5개)
+        문구를 클릭하면 문구이름과 가격이 출력()
+        총 가격의 합계 출력         
+      -->
+        <h2>문구</h2>
+        
+        <div class="outbox">
+            <label>
+                <input type="radio" name="lang" value="bolpen"/>
+                bolpen
+            </label>
+
+            <label>
+                <input type="radio" name="lang" value="pen"/>
+                pen
+            </label>
+
+            <label>
+                <input type="radio" name="lang" value="jiugae"/>
+                jiugae
+            </label>
+
+            <label>
+                <input type="radio" name="lang" value="sharp"/>
+                sharp
+            </label>
+
+            <label>
+                <input type="radio" name="lang" value="piltong"/>
+                piltong
+            </label>
+
+        </div>
+
+        <button id="btn">확인</button>
+
+        <h2>선택한 물품</h2>
+        <div id="dis">bolpen 1000원</div><br><br><br>
+        <h2>총 가격</h2>
+        <div id="total">1000원</div><br><br><br>
+
+        <script>
+        let btn = document.querySelector("#btn")
+        let dis = document.querySelector("#dis")
+        let total = document.querySelector("#total")
+        let langs = document.querySelectorAll('input[name="lang"]')
+
+        let phrase = [
+            { item : "bolpen", price : 1000},
+            { item : "pen", price : 500},
+            { item : "jiugae", price : 2000},
+            { item : "sharp", price : 1500},
+            { item : "piltong", price : 3000},
+        ]
+
+        let selcetedlist = []
+
+        btn.addEventListener("click", function(){
+            langs.forEach(function(item){
+                if(item.checked){
+                    phrase.forEach(function(data){
+                        if(item.value === data.item){                            
+                            selcetedlist.push(data)
+                        }
+                    })
+                }
+            })
+        })
+        </script>
+</body>
+</html>

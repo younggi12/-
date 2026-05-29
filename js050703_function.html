@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <div class="outBox">
+        <input type="number" id="num" placeholder="숫자" />
+        <button onclick="counts()">출력</button>
+        <div id="area"></div>
+         </div>
+
+    <script>
+ <!-- 원하는 횟수를 입력받아 횟수만큼 "안녕하세요"를 출력하세요 -->
+        function counts(){
+        let num = Number(document.querySelector("#num").value)
+        let result = ''
+        for(let i = 1; i <= num; i++){
+            result += '안녕하세요 <br>'          
+        }
+        document.querySelector("#area").innerHTML = result
+    }
+    
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문구</title>
+</head>
+<style>
+    label { display: block; }
+</style>
+
+<body>
+    <h2>문구</h2>
+    <div class="outbox">
+        <label><input type="radio" name="item" value="bolpen">  볼펜</label>
+        <label><input type="radio" name="item" value="pen">     펜</label>
+        <label><input type="radio" name="item" value="jiugae">  지우개</label>
+        <label><input type="radio" name="item" value="sharp">   샤프</label>
+        <label><input type="radio" name="item" value="piltong"> 필통</label>
+    </div>
+
+    <button id="btn">확인</button>
+
+    <h2>선택한 문구</h2>
+    <div id="dis"></div>
+
+    <h2>총 가격</h2>
+    <div id="total">0원</div>
+
+    <script>
+        let btn   = document.querySelector("#btn")
+        let dis   = document.querySelector("#dis")
+        let total = document.querySelector("#total")
+        let items = document.querySelectorAll('input[name="item"]')
+
+        let phrase = [
+            { item: "bolpen",  name: "볼펜",  price: 1000 },
+            { item: "pen",     name: "펜",    price: 500  },
+            { item: "jiugae",  name: "지우개", price: 300  },
+            { item: "sharp",   name: "샤프",  price: 800  },
+            { item: "piltong", name: "필통",  price: 2000 },
+        ]
+
+        let selectedList = []
+
+        btn.addEventListener("click", function() {
+            items.forEach(function(item) {
+                if (item.checked) {
+                    phrase.forEach(function(data) {
+                        if (item.value == data.item) {
+                            selectedList.push(data)
+                        }
+                    })
+                    item.checked = false
+                }
+            })
+
+            // 선택한 문구 출력
+            dis.innerHTML = ""
+            selectedList.forEach(function(data) {
+                dis.innerHTML += `<div>${data.name} - ${data.price}원</div>`
+            })
+
+            // 총 가격 출력
+            let sum = 0
+            selectedList.forEach(function(data) {
+                sum += data.price
+            })
+            total.innerHTML = sum + "원"
+        })
+    </script>
+</body>
+</html>

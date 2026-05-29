@@ -1,0 +1,97 @@
+<h2>좋아하는 언어는?</h2>
+    <input type="text" id="name" placeholder="이름입력" />
+    <div class="outBox">
+        <label>
+            <input type="radio" name="lang" value="javascript" >
+            JavaScript
+        </label>
+        <label>
+            <input type="radio" name="lang" value="html" >
+            html
+        </label>
+         <label>
+            <input type="radio" name="lang" value="css" >
+            css
+        </label>      
+        <label>
+            <input type="radio" name="lang" value="react" >
+            react
+        </label>
+        <label>
+            <input type="radio" name="lang" value="next" >
+            next
+        </label> 
+                        
+    </div>
+    <button id="btn">투표</button>
+
+
+    <h2>프로그래밍 언어별 투표 수</h2>
+    <div id="dis">html 1표</div><br><br><br>
+    <h2>총 투표수</h2>
+    <div id="total">총 3표</div><br><br><br>
+    <h2>투표자 명단</h2>
+    <div id="users">홍길동, 이순신, 강감찬</div><br><br><br>
+    
+    <script>
+        let name = document.querySelector("#name")
+        let btn = document.querySelector("#btn")
+        let dis = document.querySelector("#dis")
+        let total = document.querySelector("#total")
+        let users = document.querySelector("#users")
+        let langs = document.querySelectorAll('input[name="lang"]')
+
+        let voteData = [
+            { lang : "javascript", count : 0},
+            { lang : "html", count : 0},
+            { lang : "css", count : 0},
+            { lang : "react", count : 0},
+            { lang : "next", count : 0},
+        ]
+
+        let userList = []
+
+        btn.addEventListener("click", function(){
+            langs.forEach(function(item){
+                // 옵션단추 체크하기
+                if(item.checked){
+                    // lang과 value이 같으면 count가 증가 (반복)
+                    // item.value 선택된 value이다
+                    voteData.forEach(function(data){
+                        if(item.value === data.lang){                            
+                            data.count++
+                        }
+                    })
+
+                    // 이름 저장
+                    userList.push(name.value)
+                }
+            })
+
+            // 화면 출력
+                    let rel = ''
+                    voteData.forEach(function(item){
+                        rel += `<div>
+                                ${item.lang} : ${item.count}표
+                                </div>`
+                                                      
+                    })
+                    dis.innerHTML = rel
+
+                    // 총합
+                    let sum = 0
+                    voteData.forEach(function(item){
+                        sum += item.count
+                    })
+                    total.innerHTML = sum + "표"
+
+                    // 투표자 명단
+                    users.innerHTML = userList
+                    
+
+        })
+
+
+    </script>
+</body>
+</html>

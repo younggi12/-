@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let passcheck = function(){
+            let password = ''
+            return {
+                setpass : function(pass){
+                    password = pass
+                    document.write("비밀번호가 설정 되었습니다"+"<br>")
+                },
+                checkpass : function(inpass){
+                    if( password  === inpass){
+                        document.write("비밀번호 확인 되었습니다"+"<br>")
+                    }else{
+                        document.write("비밀번호가 틀립니다")
+                    }
+                }
+            }
+        }
+
+        let chesks = passcheck()
+        chesks.setpass("1234")
+        chesks.checkpass("3333")
+        chesks.checkpass("1234")
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        /* 
+            반응형 첫번쨰
+            grid, clamp()
+        */
+        .wrap{
+            width: min(1200px, 90%);
+            margin: 50px auto;
+            /* background-color: skyblue; */
+        }
+
+        .title{
+            /* clamp(화면이 작을 떄, 기준, 화면이 클 때) */
+            font-size: clamp(25px, 4vw, 50px);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .grid{
+            /* 부모가 자식을 다스리는 방법 2 :: grid */
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; 
+        }
+
+        .card{
+            /* 위드는 안줌 */
+            /* background-color: skyblue; */
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3{
+            text-align: left;
+            font-size: clamp(20px, 2.5vw, 40px);
+            margin-bottom: 10px;
+        }
+        .card p{
+            /* font-weight: bold; */
+            text-align: left;
+            font-size: clamp(14px, 1.3vw, 20px);
+        }
+        .card button{
+            width: 100%;
+            height: 10%;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .card button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h2 class="title">쇼핑몰</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="./iMG/keyboard.jpg"/>
+                <h3>키보드</h3>
+                <p>30,000원</p>
+                <button onclick="on">구매하기</button>
+            </div>
+
+             <div class="card">
+                <img src="./iMG/mouse.jpg"/>
+                <h3>마우스</h3>
+                <p>40,000원</p>
+                <button onclick="on">구매하기</button>
+            </div>
+
+             <div class="card">
+                <img src="./iMG/sony.jpg"/>
+                <h3>헤드셋</h3>
+                <p>15,000원</p>
+                <button onclick="on">구매하기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

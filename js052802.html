@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        setTimeout(funciton(){
+            document.write("안녕")
+        }, 1000)
+        1초 후에 안녕이라는 글자가 출력된다.
+    -->
+    <script>
+        let kbs = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                resolve("작업준비완료")
+            }, 1000)
+        })
+
+        kbs.then( (v)=>{
+            document.write( " 작업진행순서 0 :" , v )
+            return v + " + 콜라"
+        })
+
+        .then( (k)=>{
+            document.write( " 다음순서 : " , k )
+            return k + " + 빨대"
+        })
+
+        .then( (b)=>{
+            document.write( " then3 : " , b )
+        })
+
+        .then( (s)=>{
+            document.write( " then4 : " , s )
+            // throw new Error("빨대가 없습니다")
+        })
+
+        .catch( (e)=>{
+            document.write( " catch 발생 : ", e )
+        })
+
+        .finally(()=>{ // 성공(then), 실패(catch) 상관없이 마지막에 실행 값 전달 안함
+            document.write( " 무조건 일해!!!")
+        })
+    </script>
+</body>
+</html>

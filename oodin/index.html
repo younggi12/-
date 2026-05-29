@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&family=M+PLUS+Rounded+1c&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">
+                <a href="#" onclick="showpage(0)">
+                    <img src="./img/logo.png" alt="로고">
+                </a>
+            </div>
+            <ul class="gnb">
+                <li>
+                    <a href="#" onclick="showpage(1)">브랜드</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(2)">브랜드스토리</a></li>
+                        <li><a href="#" onclick="showpage(3)">연혁 및 인증</a></li>
+                        <li><a href="#" onclick="showpage(4)">CI 및 BI</a></li>
+                        <li><a href="#" onclick="showpage(5)">오시는길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(6)">스토리</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(7)">미디어</a></li>
+                        <li><a href="#" onclick="showpage(8)">홍보</a></li>
+                        <li><a href="#" onclick="showpage(9)">협찬</a></li>
+                        <li><a href="#" onclick="showpage(10)">이벤트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(11)">갤러리</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(12)">컬렉션</a></li>
+                        <li><a href="#" onclick="showpage(13)">인테리어</a></li>
+                        <li><a href="#" onclick="showpage(14)">익스테리어</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(15)">쇼룸</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(16)">전시장</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="fullmenu">
+        <button class="closebtn">X</button>
+        <ul class="fullgnb">
+            <li>
+                <a href="#" onclick="onpage(1)">브랜드</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(2)">브랜드스토리</a></li>
+                        <li><a href="#" onclick="showpage(3)">연혁 및 인증</a></li>
+                        <li><a href="#" onclick="showpage(4)">CI 및 BI</a></li>
+                        <li><a href="#" onclick="showpage(5)">오시는길</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(6)">스토리</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(7)">미디어</a></li>
+                        <li><a href="#" onclick="showpage(8)">홍보</a></li>
+                        <li><a href="#" onclick="showpage(9)">협찬</a></li>
+                        <li><a href="#" onclick="showpage(10)">이벤트</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(11)">갤러리</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(12)">컬렉션</a></li>
+                        <li><a href="#" onclick="showpage(13)">인테리어</a></li>
+                        <li><a href="#" onclick="showpage(14)">익스테리어</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(15)">쇼룸</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(16)">전시장</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="swrap">
+        <section id="se01" class="on">
+            <div class="outbox"></div>
+                <div class="textbox upitem"></div>
+            </div>
+        </section>
+        <section id="se02">브랜드</section>
+        <section id="se03">브랜드스토리</section>
+        <section id="se04">CI 및 BI</section>
+        <section id="se05">오시는길</section>
+        <section id="se06">스토리</section>
+        <section id="se07">미디어</section>
+        <section id="se08">홍보</section>
+        <section id="se09">협찬</section>
+        <section id="se10">이벤트</section>
+        <section id="se11">갤러리</section>
+        <section id="se12">컬렉션</section>
+        <section id="se13">인테리어</section>
+        <section id="se14">익스테리어</section>
+        <section id="se15">쇼룸</section>
+        <section id="se16">전시장</section>
+    </div>
+
+
+            <div class="ham">
+                <div class="hamspan">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="main">
+        <div class="mainImg">
+            <img src="./img/main.jpg" alt="메인">
+            <div class="main-text">
+                <h1>CREATING HEALING SPACE IS</h1>
+                <h1>WOODIN HAUS'S TOP PRIORITY.</h1>
+            </div>
+        </div>     
+    </div>
+
+    <div class="main2">
+        <div class="mainimg2">
+            <div class="main-text2">
+                <h1>BEST PRODUCT</h1>
+                <h2>ECO-FRIENDLY AND <br>HIGH-QUALITY<br> PRODUCTS</h2>
+                <hr>
+                <h3>우딘 HAUS는 건강한 공간을 위한 <br>최선의 선택을 합니다.</h3>
+            </div>
+            <img src="./img/main2.jpg" alt="메인2">
+            <div class="img-caption">
+                <span>중문</span>
+                <span style="opacity: 0.5">ㅣ</span>
+                <span>제네로 시리즈</span>
+                <span style="opacity: 0.5">ㅣ</span>
+            </div>     
+        </div>
+    </div>  
+    
+
+    <div class="main3">
+        <div class="main3-1">  
+            <div>
+                <img src="./img/door.jpg" alt="도어">
+                <h1>도어</h1>
+            </div>
+            <div class="center-text">
+                <h2>CATEGORY</h2>
+                <h3>DESIGN FOR HEALTH <br>AND WELL-being</h3>
+                <h4>우딘은 건강한 공간을 만든다는 일념으로 끊임없이 친환경 제품을 연구합니다.</h4>
+            </div>
+            <div>
+                <img src="./img/juung.jpg" alt="중문">
+                <h1>중문</h1>
+            </div> 
+        </div>
+        <div class="main3-2">
+            <div>
+                <img src="./img/seet.jpg" alt="시트">
+                <h1>시트</h1>
+            </div>
+            <div>
+                <img src="./img/bod.jpg" alt="보드">
+                <h1>보드</h1>
+            </div>
+            <div>
+                <img src="./img/chang.jpg" alt="창호">
+                <h1>창호</h1>
+            </div>
+            <div>
+                <img src="./img/mokjae.jpg" alt="목재">
+                <h1>목재</h1>
+            </div>
+        </div>
+    </div> 
+    </div>  
+    </div>  
+
+    <div class="main4">
+        <div class="mainimg4"> 
+            <div class="main-text4"> 
+                <h1>SHOWROOM </h1>
+                <h2>Woodin <br>Showroom</h2>
+                <hr>
+                <h3>우딘 전시장</h3>
+                <h4>인천 서구 북항로 122 (원창동) T. 032-583-0160</h4>
+                <h5>VIEW MORE+</h5>
+            </div>
+            <img src="./img/showroom.jpg" alt="메인"> 
+        </div> 
+    </div>  
+
+    <div class="main5">
+        <div class="main5-text">
+            <hr>
+            <h1 class="main5-2">GALLERY</h1> 
+            <h1 class="main5-3">BEST QUALITY WELLNESS INTERIOR</h1>
+        </div>
+        <div class="main5-1">
+            <div>
+                <img src="./img/jenero.jpg" alt="제네로">
+                <h1>제네로 시리즈</h1>
+            </div> 
+            <div>
+                <img src="./img/vigeo.jpg" alt="비지오">
+                <h1>비지오그란데</h1>
+            </div> 
+            <div>
+                <img src="./img/tagong.jpg" alt="타공">
+                <h1>타공 양개 도어</h1>
+            </div>
+            <div>
+                <img src="./img/sig.jpg" alt="시그니처"> 
+                <h1>시그니처 도어</h1>
+            </div>
+        </div> 
+    </div>  
+    </div> 
+
+<div class="main6">
+    <div class="main6img">
+            <img src="./img/brand.jpg" alt="브랜드">
+        <div class="main6-text1">
+                <h1>BRAND</h1>
+                <h2>BE GREEN, BE HEALING LIFE</h2>
+        </div>
+
+        <div class="main6-text2">
+                <div>
+            <h3>40년 목재 역사</h3>
+            <p>Since 1982<br>특수목 전문 기업</p>
+                </div>
+
+                <div>
+            <h3>친환경 자재 사용</h3>
+            <p>자연과 가까운<br>친환경 제품 사용</p>
+                </div>
+
+                <div>
+            <h3>고객 만족 제일주의</h3>
+            <p>세계의 다양한 목재를 연구, 개발<br>합리적 가격의 제품을 생산</p>
+                </div>
+
+                <div>
+            <h3>감각적 디자인</h3>
+            <p>다양한 디자인의 제품으로<br>색다른 인테리어 연출</p>
+                </div>
+        </div>
+    </div>     
+</div>
+
+<div class="main7">
+   
+    <div class="main7-white">
+        <div class="main7-video">
+            <iframe src="https://www.youtube.com/embed/oLLHNlDU_9w" 
+                    width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    
+    <div class="main7-black">
+        <div class="main7-text1">
+            <h1>MEDIA</h1>
+            <h2>HEALING HAUS<br>WOODIN HAUS</h2>
+            <hr>
+            <h3>Rethink DOOR 역할론편</h3>
+        </div>
+    </div>
+</div>
+
+    <script>
+        let gnb = document.querySelector(".gnb")
+        let nav = document.querySelector(".nav")
+        let sections = document.querySelectorAll(".swrap > section")
+        let ham = document.querySelector(".ham")
+        let fullmenu = document.querySelector(".fullmenu")
+        let closebtn = document.querySelector(".closebtn")
+
+        gnb.addEventListener("mouseenter", function(){
+            nav.classList.add("on")
+        })
+        gnb.addEventListener("mouseleave", function(){
+            nav.classList.remove("on")
+        })
+
+        ham.addEventListener("click", function(){
+            nav.classList.toggle("on")
+        })
+
+        closebtn.addEventListener("click", function(){
+            fullmenu.classList.remove("on")
+        })
+
+        function onpage(num){
+            sections.forEach(function(item){
+                item.classList.remove("on")
+            })
+            fullmenu.classList.remove("on")
+            sections[num].classList.add("on")
+        }
+
+        let activeitems = document.querySelectorAll(".imgbox, .textbox")
+        const observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add("on")
+                } else {
+                    entry.target.classList.remove("on")
+                }
+            })
+        }, {
+            threshold: 0.3
+        })
+
+        activeitems.forEach(function(item){
+            observer.observe(item)
+        })
+    </script>
+</body>
+</html>

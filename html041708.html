@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img1{
+            width: 500px;
+            height: 500px;
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .img2{
+            width: 400px;
+            height: 400px;
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        
+        .img1 .img{
+            transition: all 0.3s;
+            object-fit: cover;
+        }
+        .img1:hover{
+            transform: rotate(50deg);
+        }
+        .img1{
+            width: 400px;
+            height: 400px;
+            background-image: url("./iMG/man.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .img2 .img{
+            transition: all 0.3s;
+            object-fit: cover;
+        }
+        .img2:hover{
+            transform:translateX(100px);
+        }
+        .img2{
+            width: 400px;
+            height: 400px;
+            background-image: url("./iMG/man.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <img class="img1" src="./iMG/woman.jfif" alt="woman"/>
+    <img class="img2" src="iMG/man.jpg" alt="man"/>
+
+</body>
+</html>

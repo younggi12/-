@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 방법 1: 생성자 함수
+        function Movie(title, time, watched = false) {
+            this.ti = title
+            this.tm = time
+            this.wa = watched
+
+            this.info = function () {
+                return this.wa === false 
+                    ? "영화를 아직 안봄"
+                    : `${this.ti} 영화는 상영시간 ${this.tm}분인데 영화를 잘 봤음`
+            }
+        }
+        // 방법 1: 생성자 함수
+          function Movie2(title, time, watched = false) {
+            this.ti = title
+            this.tm = time
+            this.wa = watched
+
+            this.info = function () {
+                return this.wa === false
+                    ? "영화를 아직 안봄"
+                    : `${this.ti} 영화는 상영시간 ${this.tm}분인데 영화를 잘 봤음`
+            }
+        }
+        // 방법 2: 클래스
+        class Movie3{
+            constructor(title, time, watched = false) {
+                this.ti = title
+                this.tm = time
+                this.wa = watched
+            }
+            info() {
+                return this.wa === false
+                    ? "영화를 아직 안봄"
+                    : `${this.ti} 영화는 상영시간 ${this.tm}분인데 영화를 잘 봤음`
+            }
+        }
+        // 방법 2: 클래스
+           class Movie4 {
+            constructor(title, time, watched = false) {
+                this.ti = title
+                this.tm = time
+                this.wa = watched
+            }
+            info() {
+                return this.wa === false
+                    ? "영화를 아직 안봄"
+                    : `${this.ti} 영화는 상영시간 ${this.tm}분인데 영화를 잘 봤음`
+            }
+        }
+
+        // 생성자 함수 사용
+        let myMovie = new Movie("왕과 나는 남자", 120, true)
+        document.write(myMovie.info())
+
+        document.write("<br>")
+        //생성자 함수 
+        let myMovie2 = new Movie2("장산범", 150, true)
+        document.write(myMovie2.info())
+
+        document.write("<br>")
+
+        // 클래스 사용
+        let myMovie3 = new Movie3("아바타3", 240, true)
+        document.write(myMovie3.info())
+
+        document.write("<br>")
+        // 클래스 사용 
+        let myMovie4 = new Movie4("암살", 200, true)
+        document.write(myMovie4.info())
+    </script>
+</body>
+</html>

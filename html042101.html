@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .outbox{
+            width: 160px;
+            height: 100px;
+            background-color: rgba(0, 85, 131);
+            /* border-radius: 10px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left : 50%;
+            top: 50%; 
+            transform: translate(-50%, -50%);
+
+        }
+
+        
+          .inbox1{
+          width: 20px;
+          height: 100px;
+          background-color: rgb(255, 194,0);
+          position: absolute;
+          left: 25%;
+          top: 0;
+          transform: translateX(-50%);
+
+
+        } 
+
+          .inbox2{
+          width: 160PX;
+          height: 20%;
+          background-color: rgb(255, 194,0);
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+
+        }  
+
+
+     
+    </style>
+</head>
+<body>
+    <div class="outbox">
+        <div class="inbox1"></div>
+        <div class="inbox2"></div>
+    </div>
+</body>
+</html>

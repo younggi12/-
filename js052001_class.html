@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카페음료주문</title>
+    <style>
+        .wrap{
+            width: 100%;
+        }
+        h2{
+            text-align: center;
+        }
+        .drinkbox{
+            width: 60%;
+            height: 250px;
+            /* background-color: skyblue; */
+            margin: 10px auto;
+            display: flex;
+            gap: 20px;
+        }
+        .drinkLabel{
+            flex: 1;
+            cursor: pointer;
+        }
+        .drinkLabel input{
+            display: none;
+        }
+        .drinkLabel input:checked + .card{
+            transform: scale(1.05);
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .card{
+            overflow: hidden;
+            /* background-color: blue; */
+        }
+        .card img{
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+        .card p{
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .box{
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        .endbox{
+            background-color: #ccc;
+            border: 1px solid #333;
+            padding: 20px;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h2 >음료선택</h2>
+        <div class="drinkbox">
+
+            <label class="drinkLabel">
+                <input type="radio" name="drink" value="아메리카노" />
+                <div class="card">
+                    <img src="./iMG/cafe1.jpg" alt="아메리카노 사진" />
+                    <p>아메리카노</p>
+                </div> 
+            </label>
+
+            <label class="drinkLabel">
+                <input type="radio" name="drink" value="카페라떼" />
+                <div class="card">
+                    <img src="./iMG/cafe2.jpg" alt="카페라떼" />
+                    <p>카페라떼</p>
+                </div> 
+            </label>
+
+            <label class="drinkLabel">
+                <input type="radio" name="drink" value="딸기라떼" />
+                <div class="card">
+                    <img src="./iMG/cafe3.jpg" alt="딸기라떼 사진" />
+                    <p>딸기라떼</p>
+                </div> 
+            </label>
+        </div>
+        <h2>사이즈 선택</h2>
+        <div class="sizebox">
+            <label>
+                <input type="radio" name="size" value="small" />
+                Small(+1000원)
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="medium" />
+                Medium(+2000원)
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="large" />
+                Large(+4000원)
+            </label>
+        </div>
+
+        <button onclick="orderDrink()">주문하기</button>
+        <div class="dis"></div>
+    </div>
+
+    <script>
+      class Drink{
+        constructor(name , price, size){
+                this.name = name
+                this.price = price
+                this.size = size
+        }
+        smallprice(){
+            return this.price + 1000
+        }
+
+        mediumprice(){
+            return this.price + 2000
+        }
+
+        largeprice(){
+            return this.price + 4000
+        }       
+      }
+
+      let drinkcart = []
+
+      function orderDrink(){
+        let drink = document.querySelector("input[name='drink']:checked")
+        let size = document.querySelector("input[name='size']:checked")
+        let dis = document.querySelector(".dis")
+
+        let price = 0
+
+        if(!drink || !size){
+            dis.innerHTML = "음료와 사이즈를 선택해주세요"
+            return
+        }
+
+        switch(drink.value){
+            case "아메리카노" : 
+            price = 4000
+            break
+            
+            case "카페라떼" : 
+            price = 6000
+            break 
+
+            case "딸기라떼" : 
+            price = 5000
+            break 
+        }
+        let item = new Drink(drink.value, price, size.value)
+
+        let finalprice = 0 
+        switch(item.size){
+                case "small" : 
+                finalprice = item.smallprice()
+                break
+
+                case "medium" : 
+                finalprice = item.mediumprice()
+                break
+
+                case "large" : 
+                finalprice = item.largeprice()
+                break
+        }
+
+        drinkcart.push({ name : item.name,  price : item.price,  size : item.size, final : finalprice})
+
+        let show = ''
+        let sum = 0
+        drinkcart.forEach(function(drink){
+            show += `<div class="box">
+                        음료명 : ${drink.name}<br>
+                        원가격 : ${drink.price}원<br>
+                        사이즈 : ${drink.size}<br>
+                        총금액 : ${drink.final}원<br>
+                     </div>`
+
+                     sum = sum + drink.final
+        })
+        dis.innerHTML = show + `<br><div class="endbox" >총 합계 :  ${sum.toLocaleString()}원</div>`
+      }
+    </script>
+</body>
+</html>

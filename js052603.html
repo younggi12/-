@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--   /정규표현식/g  -->
+    <script>
+        //  /정규표현식/g
+        //  정규식을 활용하는 방법
+        //  1. test() :: 정규표현식의 내용이 맞는지 틀린지 체크 
+        let a = "abcdef"
+        document.write( /abc/g.test(a) + "<br>") // true or flase
+
+        //  2. 변수.match(/정규식/)
+        //  일치하는 내용을 출력, 일치하지 않으면 null
+        let b = "html css javascript"
+        document.write( b.match(/react/g) + "<br>")
+
+        //  3. 변수.replace(정규식, 바꾸고싶은 문자)
+        //  정규식에 해당하는 내용을 바꾸고 싶은 문자로 변경(치환)
+        let c = " h e l l o "
+        let result = c.replace(/ /g, '')
+        document.write(c + result + "<br>")
+
+        // 4. ^ $ +
+
+        // ^x :: x문자로 시작을 의미함
+        // 문자열의 시작을 나타냅니다
+        let d = "abcde"
+        document.write( /^c/g.test(d) )
+
+        // x$ :: x문자로 끝을 의미한다
+        // 문자열의 끝을 나타냅니다.
+        document.write( /e$/g.test(d) )
+        
+        // x+ :: x가 하나이상 반복하는가 
+        // 반복을 표현. x 문자가 한 번이상 반복하는지 의미
+        document.write( /c+/g.test(d) )
+
+
+    </script>
+</body>
+</html>

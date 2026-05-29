@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- input 상자는 무조건 button 필요 -->
+</head>
+<body>
+    <h2>로그인</h2>
+    <input id="id" type="text" placeholder="아이디"/>
+    <input id="pass" type="password" placeholder="비밀번호"/>
+    <button id="btn">입력</button>
+    <div id="dis"></div>
+
+    <script>
+
+        let login={id:"abc", pass:"1234"}
+
+        let btn=document.querySelector('#btn')
+        btn.addEventListener("click", function(){
+
+            function login(id, pass, dis){
+
+                if(id==="abc" && pass==="1234"){
+                    dis.innerHTML="로그인을 성공했습니다."
+                }else{
+                    dis.innerHTML="아이디와 비밀번호를 다시 입력해주세요."
+                }
+
+            }
+            let id=document.querySelector('#id').value
+            let pass=document.querySelector('#pass').value
+            let dis=document.querySelector('#dis')
+            login(id,pass,dis)
+        })
+
+    </script>
+
+</body>
+</html>

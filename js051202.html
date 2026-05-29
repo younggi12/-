@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let num = 0
+        function hi(){
+            document.write(` ${num} 안녕하세요 <br>`)
+    }
+    setInterval(gi, 1000) // 1초마다 hi함수 실행
+    let st = setInterval(hi, 1000)
+    clearInterval(st) // 반복(st)를 멈춤 
+    setTimeout(hi, 5000) // 5초동안 대기하고 hi를 실행 
+    document.write("반갑습니다")
+        
+    </script>
+</body>
+</html>

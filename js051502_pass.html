@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>비밀번호 점검</h2>
+       <input type="text" id="setps" placeholder="비밀번호 입력"/>
+       <button id = "sbtn">설정</button>
+       <br>
+       <h2>비밀번호 확인</h2>
+       <input id = "chps" type="text" placeholder="비밀번호 확인"/>
+       <button id="cbtn">확인</button>
+    <script>
+        let ps = function(){
+            let pasword = ''
+            return{
+                setp : function(p){
+                    pasword = p
+                },
+                checkp : function(cp){
+                    cp === pasword ? alert("비밀번호 확인") : alert("비밀번호 틀림")
+                }
+            }
+        }
+
+
+       let setps = document.getElementById("setps")
+       let chps = document.getElementById("chps")
+       let sbtn = document.getElementById("sbtn")
+       let cbtn = document.getElementById("cbtn")
+       let passm = ps()
+       
+       sbtn.addEventListener("click",function(){
+           let insetpass = setps.value
+           passm.setp(insetpass)
+           alert("비밀번호가 설정 되었습니다")
+    })
+
+        cbtn.addEventListener("click",function(){
+           let checkpass = chps.value
+           passm.checkp(checkpass)
+    })
+    </script>
+</body>
+</html>

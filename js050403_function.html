@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>주소록</h2>
+    let log = { id : "abc" , pass:"1234"}
+    <input id= "name" type="text" placeholder="이름을 입력" />
+    <input id= "add"  type="text" placeholder="주소를 입력" />
+    <button id ="btn">입력</button>
+    <div id = "dis"></div>
+    <script>
+
+       let btn = document.querySelector("#btn")
+       btn.addEventListener("click", function(){
+           function addressbox(name, add, dis){
+               dis.innerHTML +=` ${name}님 주소${add} <br>`
+           }
+           let name = document.querySelector("#name").value
+           let add  = document.querySelector("#add").value
+           let dis  = document.querySelector("#dis")
+           addressbox(name, add, dis)
+       })
+        
+        
+    </script>
+</body>
+</html>

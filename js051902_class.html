@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>영화목록</h1>
+
+    <div class="outbox">
+        <h2>영화선택</h2>
+
+        <label>
+            <input type="radio" name="movie" value="암살"/>
+            암살
+        </label>
+
+        <label>
+            <input type="radio" name="movie" value="밀정"/>
+            밀정
+        </label>
+
+        <label>
+            <input type="radio" name="movie" value="범죄도시"/>
+            범죄도시
+        </label>
+
+        <label>
+            <input type="radio" name="movie" value="장산범"/>
+            장산범
+        </label>
+
+        <label>
+            <input type="radio" name="movie" value="아바타"/>
+            아바타
+        </label>
+
+        <h2>관람객 유형 선택</h2>
+
+        <label><input type="radio" name="type" value="일반"> 일반</label>
+        <label><input type="radio" name="type" value="청소년"> 청소년 (30% 할인)</label>
+        <label><input type="radio" name="type" value="국가유공자"> 국가유공자 (50% 할인)</label>
+        <label><input type="radio" name="type" value="경로우대"> 경로우대 (20% 할인)</label>
+
+        <button onclick="showmovie()">선택</button>
+
+        <div id="dis"></div>
+        <div id="total">총 금액</div>
+    </div>
+
+    <script>
+        class Movie {
+            constructor(name, price, type) {
+                this.name = name
+                this.price = price
+                this.type = type
+            }
+
+            discount() {
+                if (this.type === '청소년') return this.price * 0.7
+                else if (this.type === '국가유공자') return this.price * 0.5
+                else if (this.type === '경로우대') return this.price * 0.8
+                else return this.price
+            }
+        }
+
+        let movies = []
+
+        function showmovie() {
+            let selectMovie = document.querySelector("input[name='movie']:checked")
+            let selectType  = document.querySelector("input[name='type']:checked")
+            let dis   = document.querySelector("#dis")
+            let total = document.querySelector("#total")
+
+            if (!selectMovie || !selectType) {
+                dis.innerHTML = "영화와 관람객 유형을 모두 선택하세요"
+                return
+            }
+
+            let movie = new Movie(selectMovie.value, 11000, selectType.value)
+
+            movies.push(movie)
+
+            let display = ''
+            let sum = 0
+            movies.forEach(function(m) {
+                display += `<div>
+                                영화명 : ${m.name}<br>
+                                정가 : ${m.price.toLocaleString()}원<br>
+                                할인가 : ${m.discount().toLocaleString()}원 (${m.type})<br>
+                            </div>`
+                sum += m.discount()
+            })
+
+            dis.innerHTML = display
+            total.innerHTML = `총 금액 : ${sum.toLocaleString()}원`
+        }
+    </script>
+</body>
+</html>

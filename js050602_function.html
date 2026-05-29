@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        // retrun문이 포함된 함수
+        // 함수를 호출할때 결과값(data)을 변환, 실행문 강제 종료
+
+        let num = [3,7,2,1,5];
+
+        function sum(numbers){
+
+            let result = 0
+
+            for(let i=0; i<numbers.length; i++){
+
+                result += Number(numbers[i])
+
+            }
+
+            return result
+
+        }
+
+        document.write(sum(num))
+</script>
+</body>
+</html>

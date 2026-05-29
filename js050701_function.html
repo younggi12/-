@@ -1,0 +1,147 @@
+함수 문제 3개
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력한 값의 2개 만들기</title>
+    <style>
+        #dis{
+            background-color: skyblue;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        함수란? 해야 할 일은 묶어 놓은것 
+        여러번 호출가능
+        호출할때 인수를 인수를 넘기면 매개변수를 사용하여 활용
+        retrun 함수를 실행하고 값을 돌려줄때
+    -->
+    <div id="dis">
+
+    </div>
+    <div class="outBox">
+        <input type="number" id="num" placeholder="숫자를 입력하세요" />
+        <button onclick="dbl()">결과보기</button>
+    </div>
+    <!-- 1번 문제  -->
+    <div class="outBox1">
+        <input type="text" id="name" placeholder="이름을 입력하세요" />
+        <button onclick="hello()">확인</button>
+    </div>
+    <!-- 2번 문제 -->
+    <div class="outBox1">
+        <input type="text" id="num1" placeholder="첫번째 숫자" />
+        <input type="text" id="num2" placeholder="두번째 숫자" />
+        <input type="text" id="num3" placeholder="세번째 숫자" />
+        <button onclick="sums()">3개숫자 합</button>
+    </div>
+
+    <!-- 3번 문제 -->
+     <div class="outBox1">
+        <button onclick="arrays()">임의의 배열합</button>
+        </div>
+
+    <!-- 4번 문제 -->
+     <div class="outBox1">
+        <input type="text" id="name" placeholder="아이디" />
+        <input type="password" id="pass" placeholder="비밀번호" />
+        <button onclick="login()">로그인</button>
+        <div id="dis"></div>
+    </div>
+
+     <!-- 5번 문제 -->
+      <div class="outBox1">
+        <input type="text" id="name" placeholder="나이" />
+        <button onclick="years()">입력</button>
+        <div id="dis"></div>
+    </div>
+
+    <script>
+        
+        function double(number){
+            return number * 2
+        }
+        function dbl(){
+            let num = Number( document.querySelector("#num").value )
+            let result = double(num)
+            document.querySelector("#dis").innerHTML = 
+            ` 결과 : ${result}`
+        }
+        // 이름을 받고 환영메세지 출력하기
+        function hi(na){
+            return `${na}님 환영합니다`
+        }
+        function hello(){
+            let name = document.querySelector("#name").value
+            let ans = hi(name)
+            document.querySelector("#dis").innerHTML = ans
+        }
+        // 2. 세개의 숫자를 받고 3개의 숫자의 합을 구하기
+        function adds(n1, n2, n3){
+            return n1+n2+n3
+        }
+        function sums(){
+            let num1 = Number( document.querySelector("#num1").value )
+            let num2 = Number( document.querySelector("#num2").value )
+            let num3 = Number( document.querySelector("#num3").value )
+            let result = adds(num1, num2, num3)
+            document.querySelector("#dis").innerHTML = 
+            ` 세 수의 결과값은 : ${result}`
+        }
+        // 임의의 배열을 만들고(단 length는 5), 배열의 총 합계 구하기
+        let arr = [1, 5, 3, 4, 8]
+        function arrsum(a){
+            let sum = 0
+            for(let i=0; i<a.length; i++){
+                sum += a[i]
+            }
+            return sum
+        }
+        function arrays(){
+            let sum = arrsum(arr)
+            document.querySelector("#dis").innerHTML = `배열의 총합은 ${sum}`
+        }
+        // 이름과 패스워드를 받아서 패스워드가 1234이면 
+        // ***님 환영합니다 그렇지 않다면 다시 입력해주세요 출력 
+
+        function checklogin(p, n){
+             let result = ``
+            if( p === "1234"){
+                 result = `${n}님 환영합니다`
+            }else{
+                 result = `${n}님 비밀번호가 틀렸습니다`
+            }
+
+            return result
+       
+             }
+        function login(){
+            let name = document.querySelector("#name").value
+            let pass = document.querySelector("#pass").value
+            let result = checklogin(pass, name)
+            document.querySelector("#dis").innerHTML = result
+
+        }
+        // 이름과 나이를 받아서 20살이상이면 **님 성년입니다 
+        // 아니면 미성년 
+        
+        function checkyears(y){
+             let result = ``
+            if( y >= 20){
+                 result = `${y}님 성인입니다`
+            }else{
+                 result = `${y}님 미성년자입니다`
+            }
+            return result
+        }
+        function years(){
+            let name = document.querySelector("#name").value
+            let result = checkyears(name)
+            document.querySelector("#dis").innerHTML = result
+        }
+    </script>
+</body>
+</html>

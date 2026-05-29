@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    // 함수를 이용합니다. 강아지 정보를 입력하고 
+    // 리턴을 받아서 함수를 호출했을떄 
+    // sound(): "멍멍" 라고 출력
+    // run():  "달립니다" 라고 출력 
+    <script>
+
+        let test = function(na){
+        document.write( na + "를 호출했습니다")
+        // return : 몇 개를 넣든 하나만 출력 
+        return {
+            name : na, 
+            age : 20,
+            info : function(){
+                document.write(` ${na}님은 나이가 ${this.age}살입니다` )
+            }
+        }
+    }
+
+       
+        let aa = test( "홍길동")
+        aa.info()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./reset.css">
+
+    <style>
+         body{
+            width: 100%;
+            height: 100vh;
+         }
+
+         .outbox{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px; 
+            margin-top: 30px;
+           /* 포지션 앱솔루트, 탑 : 50% 트렌스폼 : 트렌스레이트y: -50% */
+        }
+
+        .texts{
+             width: 80%;
+             border: 1px solid #ccc;
+             border-radius: 10px;
+             padding: 15px;
+             line-height: 1.5;
+           
+        }
+
+        #open{
+            background-color: orangered;
+            counter-reset: white;
+            padding: 7px;
+            border: none;
+        }
+
+        .modal_box{
+           width: 100%;
+           height: 100vh;
+           background-color: rgba(0,0,0,0.7);
+           position: absolute;
+           left: 0; top: 0;
+           display: none;
+           justify-content: center;
+           align-items: center;
+        }
+        .modal_box.on{
+            display: flex;
+        }       
+
+        #modal_contents{
+            background-color: white;
+            width: 50%;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        #close{
+            position: absolute;
+            right: 10px; top: 10px;
+            background-color: white;
+            color: #333;
+            font-size: 13px;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        #title{
+            font-size: 50px;
+            color: #222;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #profile{
+            width: 90%;
+            /* height: 20px; */
+            /* background-color: red; */
+            /* margin: 10px auto; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imgbox{
+            width: 50%;
+            height: 300px;
+            background-image: url("./img/man.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #righttext{
+           width: 50%;
+           height: 300px;
+           display: flex;
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           padding-left: 30px;
+           padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outbox">
+ <div class="texts">
+    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+ </div>
+
+ <button id="open">프로필 보기</button>
+ </div>
+
+ <div class="modal_box ">
+  <div id="modal_contents">
+       <button id="close">닫기</button>
+       <h2 id="title">My profile</h2>
+       <div id="profile">
+            <div id="imgbox"></div>
+            <div id="righttext">
+                <p>이름 : 이영기</p>
+                <p>주소 : 한대앞역(안산)</p>
+                <p>연락처: 02-123-4567</p>
+            </div>
+       </div>
+  </div>
+ </div>
+
+ <script>
+    let opens = document.querySelector("#open")
+    let modalbox = document.querySelector(".modal_box")
+    let closes = document.querySelector("#close")
+
+    opens.addEventListener("click", function(){
+        modalbox.classList.add("on")
+    })
+    closes.addEventListener("click", function(){
+        modalbox.classList.remove("on")
+    })
+
+    
+ </script>
+</body>
+</html>

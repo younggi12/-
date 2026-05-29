@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="display"></div>
+<script>
+    function Nai(name, old) {
+        this.na = name
+        this.ol = old         
+
+        this.info = function() {
+            return `${this.na}님의 나이는 ${this.ol}살 입니다`
+        }
+    }
+
+    let allnai = [
+        new Nai("이영기", 26),
+        new Nai("이순신", 89),
+        new Nai("강호동", 64),
+    ]
+
+    let display = document.querySelector(".display")
+
+        allnai.forEach(function(item) {
+        display.innerHTML += item.info() + "<br>"
+    })
+</script>
+</body>
+</html>

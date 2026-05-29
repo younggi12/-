@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./reset.css">
+
+    <style>
+
+        body {
+
+            background-color: #000;
+
+        }
+
+        .wrap{
+
+            width: 100%;
+
+            margin: 20px auto;
+
+            position: relative;
+
+            padding: 0 100px;
+
+           
+
+        }
+
+        .slider{
+
+            display: flex;
+
+            gap: 10px;
+
+            transition: all .5s;
+
+            /* transform: translateX(-1600px); */
+
+        }
+
+        .slide{
+
+            width: 612px;
+
+            height: 680px;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            border: 2px solid #666;
+
+            overflow: hidden;
+
+        }
+
+
+ 
+
+        .slide img{
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+ 
+
+        button{
+
+            width: 50px;
+
+            height: 50px;
+
+            background-color: rgba(255,255,255,.1);
+
+            border-radius: 50%;
+
+            border: none;
+
+            font-size: 25px;
+
+            position: absolute;
+
+            top:90%;
+
+            transform: translateY(-90%);
+
+            cursor: pointer;
+
+            color: #fff;
+
+        }
+
+
+ 
+
+        button:disabled{
+
+            background-color: #ccc;
+
+            opacity: .5;
+
+        }
+
+
+ 
+
+        .prev{left: 83%;}
+
+        .next{right: 10%;}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <div class="slider" id="slider"></div>
+
+    </div>
+
+    <button class="prev" onclick="prevSlide()">&lt;</button>
+
+    <button class="next" onclick="nextSlide()">&gt;</button>
+
+
+ 
+
+  <script>
+
+    class BasicSlider{
+
+        constructor(imgs){
+
+            this.imgs = imgs
+
+            this.index = 0
+
+            this.size = 612
+
+            this.slider = document.querySelector("#slider")
+
+
+ 
+
+            this.prevBtn = document.querySelector(".prev")
+
+            this.nextBtn = document.querySelector(".next")
+
+        }
+
+
+ 
+
+        makeSlide(){
+
+            let html = ''
+
+            this.imgs.forEach(function(item){
+
+                html += `
+
+                    <div class="slide">
+
+                        <img src="${item}" >
+
+                    </div>
+
+                `
+
+            })
+
+            this.slider.innerHTML = html
+
+            this.updateBtn()
+
+        }
+
+
+ 
+
+        move(){
+
+            this.slider.style.transform = `translateX(-${this.index * this.size}px)`
+
+            this.updateBtn()
+
+        }
+
+
+ 
+
+        next(){
+
+            this.index++
+
+            if(this.index >= this.imgs.length){
+
+                return
+
+            }
+
+
+ 
+
+            this.move()
+
+        }
+
+
+ 
+
+        prev(){
+
+            this.index--
+
+            if(this.index < 0){
+
+                return
+
+            }
+
+            this.move()
+
+        }
+
+
+ 
+
+        updateBtn(){
+
+            this.nextBtn.disabled = this.index === this.imgs.length-1
+
+
+ 
+
+            this.prevBtn.disabled = this.index === 0
+
+        }
+
+    }
+
+
+
+ 
+
+    let slideImg = [
+
+        "https://www.apple.com/v/iphone-17-pro/e/images/overview/cameras/photo/night_mode__ck9xa9ku3fxy_large.jpg",
+
+        "https://www.apple.com/v/iphone-17-pro/e/images/overview/cameras/photo/48mp__tuwanegt2r6u_large.jpg",
+
+        "https://www.apple.com/v/iphone-17-pro/e/images/overview/cameras/photo/uw48mp__fxddw4t4p5qq_large.jpg",
+
+        "https://www.apple.com/v/iphone-17-pro/e/images/overview/cameras/photo/photographic_styles__ejdtzof0t8sy_large.jpg",
+
+        "https://www.apple.com/v/iphone-17-pro/e/images/overview/cameras/photo/clean_up__djkablowcniq_large.jpg"
+
+    ]
+
+
+ 
+
+    let mySlider = new BasicSlider(slideImg)
+
+
+ 
+
+    mySlider.makeSlide()
+
+
+ 
+
+    function prevSlide(){
+
+         mySlider.prev()
+
+    }
+
+
+ 
+
+    function nextSlide(){
+
+         mySlider.next()
+
+    }
+
+  </script>
+
+</body>
+
+</html>

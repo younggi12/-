@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&family=M+PLUS+Rounded+1c&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ========================= */
+/* header */
+/* ========================= */
+
+header {
+    width: 100%;
+    height: 80px;
+}
+
+.nav{
+            position: fixed;
+            left: 0; top: 0;
+            width: 100%;
+            height: 90px;
+            background-color: darkblue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            transition: all 0.3s;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+.nav.on {
+    height: 490px;
+}
+
+.logoBox{
+            width: 20%;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+.gnb {
+    width: 70%;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+.gnb > li {
+    width: calc(95%/4);
+            height: 90px;
+}
+
+.gnb > li > a {
+    width: 100%;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: 700; 
+}
+
+.ham {
+    width: 10%;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+}
+
+.hamspan {
+    width: 30px;
+            height: 4px;
+            background-color: white;
+}
+
+.hamspan span {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    border-radius: 80%;
+    display: block;
+}
+
+.snb {
+    margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+}
+
+/* ========================= */
+/* main */
+/* ========================= */
+
+.main {
+    width: 100%;
+    position: relative;
+    padding-top: -50px;
+}
+
+.mainImg {
+    width: 100%;
+    height: 900px;
+    position: relative;
+}
+
+.mainImg img {
+    width: 97%;
+    height: 84%;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    border-radius: 7px;
+}
+
+.main-text {
+    width: 100%;
+    height: 1000px;
+    /* background-color: gold; */
+    color: whitesmoke;
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+.main-text h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+}
+
+/* ========================= */
+/* main2 */
+/* ========================= */
+
+.main2 {
+    width: 100%;
+    position: relative;
+}
+
+.mainimg2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mainimg2 img {
+    width: 50%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-right: 30px;
+}
+
+.main-text2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-text2 h1 {
+    text-align: center;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.main-text2 h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 100;
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-text2 h3 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.main-text2 hr {
+    width: 60px;
+    border: none;
+    border-top: 1px solid black;
+    margin: 15px auto;
+}
+
+.img-caption {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    width: 937px;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px 20px;
+    font-size: 24px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+}
+
+/* ========================= */
+/* main3 */
+/* ========================= */
+
+.main3 {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    padding-bottom: 70px;
+}
+
+.main3 img {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main3 h1 {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.main3 h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.main3 h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.main3-1 {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    /* background-color: blueviolet; */
+}
+
+.main3-1 > div:nth-child(1) {
+    flex: 1;
+}
+
+.main3-1 > div:nth-child(2) {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.main3-1 > div:nth-child(3) {
+    flex: 1;
+}
+
+.main3-2 {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.main3-2 > div:nth-child(1) { flex: 1; }
+.main3-2 > div:nth-child(2) { flex: 1; }
+.main3-2 > div:nth-child(3) { flex: 1; }
+.main3-2 > div:nth-child(4) { flex: 1; }
+
+.main3-1 > div,
+.main3-2 > div {
+    position: relative;
+}
+
+/* ========================= */
+/* main4 */
+/* ========================= */
+
+.main4 {
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+    background-color: black;
+}
+
+.mainimg4 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 30px;
+}
+
+.mainimg4 img {
+    width: 65%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.main-text4 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+
+.main-text4 h1 {
+    text-align: right;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+}
+
+.main-text4 h2 {
+    text-align: right;
+    font-size: 62px;
+    font-weight: 100;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+    line-height: 1;
+    margin: 5px 0;
+}
+
+.main-text4 hr {
+    width: 60px;
+    border: none;
+    border-top: 1px solid white;
+    margin: 15px 0 15px auto;
+}
+
+.main-text4 h3 {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: gray;
+}
+
+.main-text4 h4 {
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: gray;
+}
+
+.main-text4 h5 {
+    text-align: right;
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: gray;
+}
+
+/* ========================= */
+/* main5 */
+/* ========================= */
+
+.main5 {
+    width: 100%;
+    height: auto;
+    /* background-color: #f5f5f3; */
+    padding: 200px 0 200px 0;
+}
+
+.main5-text {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.main5-text hr {
+    width: 60px;
+    border: none;
+    border-top: 1px solid white;
+    margin: 15px 0 15px auto;
+    background-color: black;
+}
+
+.main5-2 {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.main5-3 {
+    font-size: 52px;
+    font-weight: 100;
+    color: #111;
+}
+
+.main5-1 {
+    width: 95%;
+    height: 380px;
+    display: flex;
+    gap: 16px;
+    margin: 0 auto;
+}
+
+.main5-1 > div:nth-child(1) { flex: 1; }
+.main5-1 > div:nth-child(2) { flex: 1; }
+.main5-1 > div:nth-child(3) { flex: 1; }
+.main5-1 > div:nth-child(4) { flex: 1; }
+
+.main5-1 img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.main5-1 h1 {
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #333;
+}
+
+/* ========================= */
+/* main6 */
+/* ========================= */
+
+.main6 {
+    width: 100%;
+    position: relative;
+    padding-top: -50px;
+    background-color: #333;
+    padding: 60px 0 80px;
+}
+
+.main6img {
+    width: 100%;
+    height: 900px;
+    position: relative;
+}
+
+.main6img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    border-radius: 7px;
+    display: flex;
+}
+
+.main6-text1 {
+    width: 100%;
+    height: 600px;
+    color: whitesmoke;
+    z-index: 100;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.main6-text1 h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+}
+.main6-text1 h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    font-size: 55px;
+}
+.main6-text2 {
+    color: whitesmoke;
+    position: absolute;
+    display: flex;
+    font-size: 25px;
+    flex: 1;
+    width: 100%;
+    bottom: 200px;
+    justify-content: center;
+    gap: 170px;
+    padding: 30px;
+}
+
+.main6-text2 h3{
+  font-size: 27px;
+  font-weight: 250;
+  text-align: center;
+}
+
+.main6-text2 p{
+  font-size: 17px;
+  font-weight: 250;
+  text-align: center;
+}
+
+
+/* ========================= */
+/* main7 */
+/* ========================= */
+
+.main7 {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 왼쪽 영상 영역 - z-index 높게 */
+.main7-white {
+    width: 65%;
+    height: 100%;
+    padding: 100px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.main7-video {
+    width: 100%;
+    height: 85%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.main7-black {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 51%;
+    height: 850px;       
+    background-color: black;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.main7-text1 {
+    padding: 50px 40px;
+    width: 100%;             
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+
+.main7-text1 h1 {
+    font-size: 18px;
+    color: #aaa;
+    font-weight: 150;
+    margin-bottom: 16px;
+    text-align: left;
+    padding-left: 240px;
+}
+
+.main7-text1 h2 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 63px;
+    font-weight: 100;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.main7-text1 hr {
+    border: none;
+    border-top: 1px solid white;
+    text-align: center;
+    margin: 30px auto;  
+    width: 420px;  
+}
+
+.main7-text1 h3 {
+    font-size: 18px;
+    color: #888;
+    font-weight: 300;
+    text-align: left;
+    padding-left: 240px;
+}
+
+        .fullmenu{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.7);
+            position: fixed;
+            left: 0; top: -100%;
+            z-index: 100;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fullmenu.on{
+            top: 0;
+        }
+        .closebtn{
+            position: absolute;
+            right: 30px; top: 30px;
+            width: 30px; 
+            height: 30px;
+            border-radius: 1px;
+            background-color: skyblue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .fullgnb{
+            width: 80%;
+            height: 80%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .fullgnb > li{
+            width: calc(90%/4);
+            height: 100%;
+            margin-top: 50px;
+        }
+        .fullgnb > li > a{
+            display: block;
+            width: 100%;
+            height: 100px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .fullsnb{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .fullsnb li a{
+            color: white;
+            font-size: 18px;
+        }
+        section{
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+        section.on{
+            display: block;
+        }
+        #se01{ background-color: whitesmoke; }
+        #se01.on{ display: block; }
+        #se02, #se03, #se04, #se05, #se06, #se07, #se08, #se09, #se10{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+        }
+        #se02.on, #se03.on, #se04.on, #se05.on, #se06.on,
+        #se07.on, #se08.on, #se09.on, #se10.on {
+            display: flex;
+        }
+        #se02{ background-color: skyblue; }
+        #se03{ background-color: gold; }
+        #se04{ background-color: lightcoral; }
+        #se05{ background-color: lightgreen; }
+        #se06{ background-color: gold; }
+        #se07{ background-color: lightblue; }
+        #se08{ background-color: lightgreen; }
+        #se09{ background-color: lightpink; }
+        #se10{ background-color: lightcoral; }
+        #se11{ background-color: lightcoral; }
+        #se12{ background-color: lightcoral; }
+        #se13{ background-color: lightcoral; }
+        #se14{ background-color: lightcoral; }
+        #se15{ background-color: lightcoral; }
+        #se16{ background-color: lightcoral; }
+
+        .outbox{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+        }
+        .imgbox{
+            width: 100%;
+            height: 350px;
+            background-color: blue;
+            overflow: hidden;
+        }
+        .imgbox > img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .textbox{
+            margin-top: 150px;
+            width: 100%;
+            height: 405px;
+            background-color: wheat;
+            font-size: 30px;
+            font-weight: bold;
+            transform: translateX(100px);
+            transition: all 0.3s;
+        }
+        .scaleitem{
+            transition: all 0.3s; 
+            transform-origin: center;
+            opacity: 0.7;
+        }
+        .scaleitem > img{
+            transform: scale(1.3);
+            transition: all 0.3s;
+        }
+        .scaleitem.on > img {        
+            transform: scale(1);
+        }
+        .upitem{
+            transform: translateY(100px);
+            transition: all 0.3s; 
+        }
+        .upitem.on{
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">
+                <a href="#" onclick="showpage(0)">
+                    <img src="./img/logo.png" alt="로고">
+                </a>
+            </div>
+            <ul class="gnb">
+                <li>
+                    <a href="#" onclick="showpage(0)">브랜드</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(1)">브랜드스토리</a></li>
+                        <li><a href="#" onclick="showpage(2)">연혁 및 인증</a></li>
+                        <li><a href="#" onclick="showpage(3)">CI 및 BI</a></li>
+                        <li><a href="#" onclick="showpage(4)">오시는길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(5)">스토리</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(6)">미디어</a></li>
+                        <li><a href="#" onclick="showpage(7)">홍보</a></li>
+                        <li><a href="#" onclick="showpage(8)">협찬</a></li>
+                        <li><a href="#" onclick="showpage(9)">이벤트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(10)">갤러리</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(11)">컬렉션</a></li>
+                        <li><a href="#" onclick="showpage(12)">인테리어</a></li>
+                        <li><a href="#" onclick="showpage(13)">익스테리어</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="showpage(14)">쇼룸</a>
+                    <ul class="snb">
+                        <li><a href="#" onclick="showpage(15)">전시장</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="ham">
+                <div class="hamspan">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="fullmenu">
+        <button class="closebtn">X</button>
+        <ul class="fullgnb">
+            <li>
+                <a href="#" onclick="onpage(0)">회사소개</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(1)">브랜드스토리</a></li>
+                    <li><a href="#" onclick="showpage(2)">연혁 및 인증</a></li>
+                    <li><a href="#" onclick="showpage(3)">CI 및 BI</a></li>
+                    <li><a href="#" onclick="showpage(4)">오시는길</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(5)">상품</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(6)">미디어</a></li>
+                    <li><a href="#" onclick="showpage(7)">홍보</a></li>
+                    <li><a href="#" onclick="showpage(8)">협찬</a></li>
+                    <li><a href="#" onclick="showpage(9)">이벤트</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(10)">회사위치</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(11)">컬렉션</a></li>
+                    <li><a href="#" onclick="showpage(12)">인테리어</a></li>
+                    <li><a href="#" onclick="showpage(13)">익스테리어</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" onclick="onpage(14)">고객문의</a>
+                <ul class="fullsnb">
+                    <li><a href="#" onclick="showpage(15)">전시장</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="swrap">
+        <section id="se01" class="on">
+            <div class="outbox">
+                <div class="imgbox scaleitem">
+                    <img src="./iMG/park1.jfif" alt="이미지" />
+                </div>
+                <div class="textbox upitem">
+                    <div class="leftbox">hello</div>
+                    <div class="rightbox">hello<br>hi</div>
+                </div>
+            </div>
+        </section>
+        <section id="se02">브랜드</section>
+        <section id="se03">브랜드스토리</section>
+        <section id="se04">연혁 및 인증</section>
+        <section id="se05">CI 및 BI</section>
+        <section id="se06">오시는길</section>
+        <section id="se07">스토리</section>
+        <section id="se08">미디어</section>
+        <section id="se09">홍보</section>
+        <section id="se10">협찬</section>
+        <section id="se11">이벤트</section>
+        <section id="se12">갤러리</section>
+        <section id="se13">컬렉션</section>
+        <section id="se14">인테리어</section>
+        <section id="se15">익스테리어</section>
+        <section id="se16">쇼룸</section>
+        <section id="se17">전시장</section>
+    </div>
+
+    <div class="main">
+        <div class="mainImg">
+            <img src="./img/main.jpg" alt="메인">
+            <div class="main-text">
+                <h1>CREATING HEALING SPACE IS</h1>
+                <h1>WOODIN HAUS'S TOP PRIORITY.</h1>
+            </div>
+        </div>     
+    </div>
+
+    <div class="main2">
+        <div class="mainimg2">
+            <div class="main-text2">
+                <h1>BEST PRODUCT</h1>
+                <h2>ECO-FRIENDLY AND <br>HIGH-QUALITY<br> PRODUCTS</h2>
+                <hr>
+                <h3>우딘 HAUS는 건강한 공간을 위한 <br>최선의 선택을 합니다.</h3>
+            </div>
+            <img src="./img/main2.jpg" alt="메인2">
+            <div class="img-caption">
+                <span>중문</span>
+                <span style="opacity: 0.5">ㅣ</span>
+                <span>제네로 시리즈</span>
+                <span style="opacity: 0.5">ㅣ</span>
+            </div>     
+        </div>
+    </div>  
+    
+
+    <div class="main3">
+        <div class="main3-1">  
+            <div>
+                <img src="./img/door.jpg" alt="도어">
+                <h1>도어</h1>
+            </div>
+            <div class="center-text">
+                <h2>CATEGORY</h2>
+                <h3>DESIGN FOR HEALTH <br>AND WELL-being</h3>
+                <h4>우딘은 건강한 공간을 만든다는 일념으로 끊임없이 친환경 제품을 연구합니다.</h4>
+            </div>
+            <div>
+                <img src="./img/juung.jpg" alt="중문">
+                <h1>중문</h1>
+            </div> 
+        </div>
+        <div class="main3-2">
+            <div>
+                <img src="./img/seet.jpg" alt="시트">
+                <h1>시트</h1>
+            </div>
+            <div>
+                <img src="./img/bod.jpg" alt="보드">
+                <h1>보드</h1>
+            </div>
+            <div>
+                <img src="./img/chang.jpg" alt="창호">
+                <h1>창호</h1>
+            </div>
+            <div>
+                <img src="./img/mokjae.jpg" alt="목재">
+                <h1>목재</h1>
+            </div>
+        </div>
+    </div> 
+    </div>  
+    </div>  
+
+    <div class="main4">
+        <div class="mainimg4"> 
+            <div class="main-text4"> 
+                <h1>SHOWROOM </h1>
+                <h2>Woodin <br>Showroom</h2>
+                <hr>
+                <h3>우딘 전시장</h3>
+                <h4>인천 서구 북항로 122 (원창동) T. 032-583-0160</h4>
+                <h5>VIEW MORE+</h5>
+            </div>
+            <img src="./img/showroom.jpg" alt="메인"> 
+        </div> 
+    </div>  
+
+    <div class="main5">
+        <div class="main5-text">
+            <hr>
+            <h1 class="main5-2">GALLERY</h1> 
+            <h1 class="main5-3">BEST QUALITY WELLNESS INTERIOR</h1>
+        </div>
+        <div class="main5-1">
+            <div>
+                <img src="./img/jenero.jpg" alt="제네로">
+                <h1>제네로 시리즈</h1>
+            </div> 
+            <div>
+                <img src="./img/vigeo.jpg" alt="비지오">
+                <h1>비지오그란데</h1>
+            </div> 
+            <div>
+                <img src="./img/tagong.jpg" alt="타공">
+                <h1>타공 양개 도어</h1>
+            </div>
+            <div>
+                <img src="./img/sig.jpg" alt="시그니처"> 
+                <h1>시그니처 도어</h1>
+            </div>
+        </div> 
+    </div>  
+    </div> 
+
+<div class="main6">
+    <div class="main6img">
+            <img src="./img/brand.jpg" alt="브랜드">
+        <div class="main6-text1">
+                <h1>BRAND</h1>
+                <h2>BE GREEN, BE HEALING LIFE</h2>
+        </div>
+
+        <div class="main6-text2">
+                <div>
+            <h3>40년 목재 역사</h3>
+            <p>Since 1982<br>특수목 전문 기업</p>
+                </div>
+
+                <div>
+            <h3>친환경 자재 사용</h3>
+            <p>자연과 가까운<br>친환경 제품 사용</p>
+                </div>
+
+                <div>
+            <h3>고객 만족 제일주의</h3>
+            <p>세계의 다양한 목재를 연구, 개발<br>합리적 가격의 제품을 생산</p>
+                </div>
+
+                <div>
+            <h3>감각적 디자인</h3>
+            <p>다양한 디자인의 제품으로<br>색다른 인테리어 연출</p>
+                </div>
+        </div>
+    </div>     
+</div>
+
+<div class="main7">
+   
+    <div class="main7-white">
+        <div class="main7-video">
+            <iframe src="https://www.youtube.com/embed/oLLHNlDU_9w" 
+                    width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    
+    <div class="main7-black">
+        <div class="main7-text1">
+            <h1>MEDIA</h1>
+            <h2>HEALING HAUS<br>WOODIN HAUS</h2>
+            <hr>
+            <h3>Rethink DOOR 역할론편</h3>
+        </div>
+    </div>
+</div>
+
+    <script>
+        let sections = document.querySelectorAll(".swrap > section")
+        let fullmenu = document.querySelector(".fullmenu")
+        let gnb = document.querySelector(".gnb")
+        let nav = document.querySelector(".nav")
+        let ham = document.querySelector(".ham")
+
+        gnb.addEventListener("mouseenter", function(){
+            nav.classList.add("on")
+        })
+        gnb.addEventListener("mouseleave", function(){
+            nav.classList.remove("on")
+        })
+
+        ham.addEventListener("click", function(){
+            nav.classList.toggle("on")
+        })
+        ham.addEventListener("click", function(){
+            fullmenu.classList.add("on")
+        })
+        closebtn.addEventListener("click", function(){
+            fullmenu.classList.remove("on")
+        })
+
+        function onpage(num){
+            sections.forEach(function(item){
+                item.classList.remove("on")
+            })
+            fullmenu.classList.remove("on")
+            sections[num].classList.add("on")
+        }
+
+        let activeitems = document.querySelectorAll(".imgbox, .textbox")
+        const observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add("on")
+                } else {
+                    entry.target.classList.remove("on")
+                }
+            })
+        }, {
+            threshold: 0.3
+        })
+
+        activeitems.forEach(function(item){
+            observer.observe(item)
+        })
+    </script>
+</body>
+</html>

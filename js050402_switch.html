@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="txt" type="text" placeholder="계절을 입력해주세요" />
+    <button id="btn">확인</button>
+    <script>
+        let txt = document.querySelector("#txt")
+        let btn = document.querySelector("#btn")
+        btn.addEventListener("click", function(){
+            let day = txt.Value
+            switch(day){
+                case "봄" : 
+                document.write("자켓"+"<br>")
+                break 
+                case "여름" : 
+                document.write("반플 입어보세요"+"<br>")
+                break 
+                case "가을" : 
+                document.write("바바리코트를 입어보세요"+"<br>")
+                break 
+                case "겨울" : 
+                document.write("패딩을 입어보세요"+"<br>")
+                default : 
+                document.write("봄,여름,가을,겨울을 입력하세요"+"<br>")
+                break 
+
+            }
+        })
+
+    </script>
+</body>
+</html>

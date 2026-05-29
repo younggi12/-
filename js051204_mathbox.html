@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+      .outbox{
+        width: 100%;
+        height: 150px;
+        background-color: skyblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .box{
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: gold;
+
+      }
+   </style>
+</head>
+
+<body>
+    <input type="number" placeholder="갯수를 입력하세요" id="innum">
+    <button onclick="makebox()">상자만들기</button>
+
+    <div class="outbox">
+        
+    </div>
+
+    <script>
+      let outbox = document.querySelector(".outbox")
+      function makebox(){
+        outbox.innerHTML =``
+           let innum = Number(document.querySelector("#innum").value)
+           // 힌트 item.style.backgroundcolor = rgb(r, g, b)
+           // let r = Math.floor(Math.random()*256)
+           for(i=1; i<=innum ; i++){
+            // rgb(0~255 ,0~255 ,0~255)
+            let r = Math.floor (Math.random()*256)
+            let g = Math.floor (Math.random()*256)
+            let b = Math.floor (Math.random()*256)
+
+            let divs = document.createElement("div")
+            divs.classList.add("box")
+            divs.innerText = "box"
+            divs.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+            outbox.appendChild(divs)
+           }
+           
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     label{
+        display: block;
+     }
+    </style>
+</head>
+<body>
+    <div class="cafe">
+        <h2>음료 선택</h2>
+        <label><input type="radio" name="drink" value="아메리카노"/>아메리카노</label>
+        
+        <label><input type="radio" name="drink" value="버블티"/>버블티</label>
+        
+        <label><input type="radio" name="drink" value="스무디"/>스무디</label>
+        
+        <label><input type="radio" name="drink" value="카페라떼"/>카페라떼</label>
+        
+        <label><input type="radio" name="drink" value="핫초코"/>핫초코</label>
+        
+        <br>
+        <br>
+
+        <h2>음료 사이즈</h2>
+        <label><input type="radio" name="size" value="스몰"/>스몰</label>
+      
+        <label><input type="radio" name="size" value="미디움"/>미디움</label>
+        
+        <label><input type="radio" name="size" value="라지"/>라지</label>
+        
+
+        <button onclick="oder()">주문하기</button>
+
+        <div id="dis"></div>
+        <div id="total"></div>
+    </div>
+    <script>
+        class Cafe{
+            constructor(menu, size){
+                this.menu = menu
+                this.size = size
+                this.price = 6000
+            }
+
+            smallfee(){
+                return this.price + 1000
+            }
+
+            midiumfee(){
+                return this.price + 2000
+            }
+
+            largefee(){
+                return this.price + 4000
+            }
+        }
+
+        let Cafecart = []
+
+        function oder(){
+            let drink = document.querySelector("input[name='drink']:checked")
+            let size = document.querySelector("input[name='size']:checked")
+            let dis = document.querySelector("#dis")
+            let total = document.querySelector("#total")
+
+            if(!drink || !size){
+                dis.innerHTML = "음료와 사이즈를 선택해주세요"
+                return
+            }
+
+            let item = new Cafe(drink.value, size.value)
+            let disprice = 0 
+            switch(item.size){
+                case "스몰" : 
+                disprice = item.smallfee()
+                break
+
+                case "미디움" : 
+                disprice = item.midiumfee()
+                break
+
+                case "라지" : 
+                disprice = item.largefee()
+                break
+            }
+
+            Cafecart.push({menu: item.menu, size: item.size, price: disprice,                   
+                    surcharge: disprice - item.price})
+
+            let html = ''
+            let sum = 0
+            Cafecart.forEach(function(m){
+              html += `<div>
+                       음료 : ${m.menu}<br>
+                       사이즈 : ${m.size}<br>
+                       기본가격 : ${(6000).toLocaleString()}원<br>
+                       추가금액 : ${Number(m.surcharge).toLocaleString()}<br>
+                       총 금액 : ${m.price.toLocaleString()}원<br>
+                     </div>`
+            sum += m.price
+            })
+
+            dis.innerHTML = html
+            
+
+        }
+    </script>
+</body>
+</html>

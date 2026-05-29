@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>갤러리</title>
+
+    <link rel="stylesheet" href="./reset.css"/>
+
+    <style>
+        h1{
+            margin: 50px auto;
+            text-align: center;
+        }
+        
+        .dis{
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin: 0 auto;
+            gap: 25px;
+
+        }
+        .card{
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        img{
+            width: 100%;
+            height: clamp(250px, 2vw, 350px);
+            object-fit: cover;
+        }
+
+        .text{
+            padding: 20px;
+        }
+
+        .card:hover{
+            transform: translateY(-20px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>작품 갤러리</h1>
+
+    <div class="dis" id="dis"></div>
+
+    <script>
+        async function jsonload(){
+            try{
+                let res = await fetch("data3.json")
+                let data = await res.json()
+                let dis = document.getElementById("dis")
+                let html = ''
+
+                data.forEach(function(item){
+                    html += `
+                            <div class='card'>
+                                <img src='${item.image}'/>
+                                <div class='text'>
+                                    <h3>${item.title}</h3><br>
+                                    <p>${item.description}</p><br>
+                                    <p>작가 : ${item.artist}</p>
+                                </div>
+                            </div>
+                            `
+                })
+                dis.innerHTML = html
+            }catch(err){
+                console.error("에러 발생", err)
+            }
+        }
+
+        jsonload()
+    </script>
+
+</body>
+
+</html>

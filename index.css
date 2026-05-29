@@ -1,0 +1,49 @@
+.imgbox{
+    width: 800px;
+    height: 1200px;
+    background-color: skyblue;
+}
+.up{
+    transition: all 0.5s;
+    opacity: 0;
+    transform: translateY(100px);
+}
+.up.on{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.textbox{
+    border-radius: 10px;
+    background-color: pink;
+    width: 200px;
+    height: 200px;
+}
+.left{
+    opacity: 0.3;
+    transform: translateX(-100px);
+}
+.left.on{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.boxbox{
+    width: 300px;
+    height: 100px;
+    background-color: red;
+    color: white;
+}
+.down{
+    opacity: 0;
+    transform: translateY(-100px);
+}
+.down.on{
+    transition-delay: 0.5s;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.up, .left, .down{
+    transition: all 0.5s;
+}

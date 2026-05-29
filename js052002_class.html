@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거</title>
+    <style>
+        .wrap{
+            width: 100%;
+            text-align: center;
+            background-color: lightcoral;
+        }
+        h1{
+            text-align: center;
+            font-size: 60px;
+            color: yellow;
+        }
+        h2{
+            text-align: center;
+            font-size: 30px;
+            color: yellow;
+        }
+        .hambox{
+            width: 60%;
+            height: 300px;
+            /* background-color: skyblue; */
+            margin: 10px auto;
+            display: flex;
+            gap: 20px;
+        }
+        .hamLabel{
+            flex: 1;
+            cursor: pointer;
+        }
+        .hamLabel input{
+            display: none;
+            text-align: center;
+            /* background-color: black; */
+        }
+        .hamLabel input:checked + .card{
+            transform: scale(1.05);
+            border: 1px solid #333;
+            border-radius: 30px;
+        }
+
+        .card{
+            overflow: hidden;
+            /* background-color: blue; */
+        }
+        .card img{
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card p{
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .sizebox{
+            text-align: center;
+            font-weight: bold;
+        }
+        .setbox{
+            text-align: center;
+            font-weight: bold; 
+        }
+        .box{
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        .endbox{
+            background-color: white;
+            border: 1px solid #333;
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;        
+            box-sizing: border-box;
+            height: auto;       
+            font-weight: bold;   
+        }
+        button{
+            width: 250px;      
+            height: 50px;      
+            font-size: 18px;   
+            font-weight: bold;
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+            border-radius: 50px;
+            display: block;
+            margin-left: auto;     
+            margin-right: 20px
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>롯데리아</h1>
+        <div class="hambox">
+
+            <label class="hamLabel">
+                <input type="radio" name="ham" value="치킨버거" />
+                <div class="card">
+                    <img src="./iMG/ham1.jpg" alt="치킨버거 사진" />
+                    <p>치킨버거</p>
+                </div> 
+            </label>
+
+            <label class="hamLabel">
+                <input type="radio" name="ham" value="치즈버거" />
+                <div class="card">
+                    <img src="./iMG/ham2.jpg" alt="치즈버거" />
+                    <p>치즈버거</p>
+                </div> 
+            </label>
+
+            <label class="hamLabel">
+                <input type="radio" name="ham" value="새우버거" />
+                <div class="card">
+                    <img src="./iMG/ham3.jpg" alt="새우버거 사진" />
+                    <p>새우버거</p>
+                </div> 
+            </label>
+        </div>
+        <h2>사이즈 선택</h2>
+        <div class="sizebox">
+            <label>
+                <input type="radio" name="size" value="small" />
+                Small(+1000원)
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="medium" />
+                Medium(+2000원)
+            </label>
+
+            <label>
+                <input type="radio" name="size" value="large" />
+                Large(+4000원)
+            </label>
+        </div>
+
+        <h2>세트 선택</h2>
+        <div class="setbox">
+            <label>
+                <input type="radio" name="set" value="set" />
+                Set(+2000원)
+            </label>
+
+            <label>
+                <input type="radio" name="set" value="nomal" />
+                nomal(X)
+            </label>
+
+        </div>
+
+        <button onclick="orderham()">주문하기</button>
+        <div class="dis"></div>
+    </div>
+
+    <script>
+      class Ham{
+        constructor(name , price, size, set){
+                this.name = name
+                this.price = price
+                this.size = size
+                this.set = set
+        }
+        smallprice(){
+            return this.price + 1000
+        }
+
+        mediumprice(){
+            return this.price + 2000
+        }
+
+        largeprice(){
+            return this.price + 4000
+        }       
+      }
+
+      let hamcart = []
+
+      function orderham(){
+        let ham = document.querySelector("input[name='ham']:checked")
+        let size = document.querySelector("input[name='size']:checked")
+        let set = document.querySelector("input[name='set']:checked")
+        let dis = document.querySelector(".dis")
+
+        let price = 0
+
+        if(!ham || !size || !set){
+            dis.innerHTML = "상품 세트 사이즈를 선택해주세요"
+            return
+        }
+
+        switch(ham.value){
+                case "치킨버거" : 
+                price = 7000
+                break
+                
+                case "치즈버거" : 
+                price = 6000
+                break 
+
+                case "새우버거" : 
+                price = 5500
+                break 
+            }
+        let item = new Ham(ham.value, price, size.value, set.value)
+
+        let finalprice = 0 
+        switch(item.size){
+                case "small" : 
+                finalprice = item.smallprice()
+                break
+
+                case "medium" : 
+                finalprice = item.mediumprice()
+                break
+
+                case "large" : 
+                finalprice = item.largeprice()
+                break
+        }
+
+        if(item.set === "set"){
+           finalprice += 2000
+        }
+
+        hamcart.push({ name : item.name,  price : item.price,  size : item.size, final : finalprice})
+
+        let show = ''
+        let sum = 0
+        hamcart.forEach(function(ham){
+            show += `<div class="box">
+                        상품명 : ${ham.name}<br>
+                        원가격 : ${ham.price.toLocaleString()}원<br>
+                        사이즈 : ${ham.size}<br>
+                        총금액 : ${ham.final.toLocaleString()}원
+                     </div>`
+
+                     sum = sum + ham.final
+        })
+        dis.innerHTML = `<div class="endbox">${show}총 합계 : ${sum.toLocaleString()}원</div>`
+      }
+    </script>
+</body>
+</html>

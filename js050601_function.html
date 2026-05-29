@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+      사용자 정의 함수
+        function 함수이름(){
+              실행문 
+        }
+         함수호출 
+         함수이름()
+
+         매개변수 
+         함수를 호출할때 값(인수)을 넘기고 그 값을 넘겨받으면
+         변수에 넣어야 함. 함수에 변수를 선언하는데 이걸 매개변수라고 한다.
+
+         sum(2, 5) : 인수는 2, 5
+         sum(num1, num2) : 인수는 num1, num2
+
+         function sum(a,b){
+            a, b : 매개변수
+         }
+         -->
+</head>
+<body>
+    <button onclick="myfun(1)">1번</button>
+    <button onclick="myfun(2)">2번</button>
+    <button onclick="myfun(3)">3번</button>
+    <button onclick="myfun(4)">4번</button>
+    <button onclick="myfun(5)">5번</button>
+    <button onclick="myfun(6)">6번</button>
+    <div id="dis"></div>
+    <script>
+     let dis = document.querySelector("#dis");
+       
+     function myfun(num){
+           let result;
+
+    if (num % 2 == 0) {
+      result = "짝수";
+    } else {
+      result = "홀수";
+    }
+
+    dis.innerHTML = `${num}번 버튼 클릭 <br>
+                     ${result}입니다 <br>`;
+  }
+    </script>
+</body>
+</html>

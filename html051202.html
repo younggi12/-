@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seoga앤cook</title>
+
+    <link rel="stylesheet" href="/reset.css">
+
+     <style>
+
+ header{
+
+    width: 100%;
+
+    height: 95px;
+
+    background-color: rgb(23, 112, 75);
+
+    color: whitesmoke;
+
+ }
+
+ nav{
+
+    width: 100%;
+
+    height: 95px;
+
+    background-color: rgb(23, 112, 75);
+
+    transition: all 0.3s;
+
+    overflow: hidden;
+
+    position: fixed;
+
+    top: 0; left: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items:start;
+
+ }
+
+ nav.on{
+
+    height: 520px;
+
+ }
+
+ .logo{
+
+    width: 30%;
+
+    height: 100%;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    /* background-color: aqua; */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+ }
+
+ .ham{
+
+    width: 20%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+   
+
+    /* background-color: aqua; */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+ }
+
+ .ham span{
+
+    width: 45px;
+
+    height:2px;
+
+    background-color: aliceblue;
+
+    transition: all 0.3s;
+
+ }
+
+ .ham.on span:nth-child(1){
+
+    transform: rotate(45deg);
+
+ }
+
+ .ham.on span:nth-child(2){
+
+    opacity: 0;
+
+ }
+
+ /* 전체화면의 메뉴 부분 */
+
+ .fullMenu{
+
+    width: 100%;
+
+    height: 0;
+
+    background-color: rgba(0, 31, 36, 0.9);
+
+    color: aliceblue;
+
+    position: fixed;
+
+    left: 0;
+
+    top: -100%;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    transition: all 0.3s;
+
+ }
+
+.fullMenu.on{
+
+    top: 0;
+
+    height: 100vh;
+
+    display: flex;
+
+
+ 
+
+}
+
+
+ 
+
+.fullGnb{
+
+    width: 65%;
+
+    height: 70%;
+
+    margin-top: 60px;
+
+    /* background-color: aqua; */
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+.fullGnb>li{
+
+    width: calc(100%/4);
+
+    height: 100%;
+
+    font-size: 2px;
+
+     /* background-color: aqua; */
+
+   
+
+}
+
+.fullGnb>li>a{
+
+    width: 100%;
+
+    height: 20%;
+
+    font-size: 40px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    display:flex ;
+
+    justify-content: center;
+
+    align-items: center;
+
+     /* background-color: rgb(255, 38, 0); */
+
+}
+
+.fullSnb{
+
+    width: 100%;
+
+    height: 80%;
+
+    font-size:25px ;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+     display:flex ;
+
+    justify-content: start;
+
+    align-items: center;
+
+    flex-direction: column;
+
+     /* background-color: rgb(0, 0, 0); */
+
+     color: rgb(181, 192, 201);
+
+     gap: 10px;
+
+}
+
+.closeBtn{
+
+    position: absolute;
+
+    right: 170px;
+
+    top: 45px;
+
+    width: 30px;
+
+    height: 30px;
+
+    font-size: 45px;
+
+    /* border: 1px solid red; */
+
+    cursor: pointer;
+
+}
+
+ .gnb{
+
+    width: 50%;
+
+    height: 95px;
+
+    display: flex;
+
+    justify-content: center;
+
+ }
+
+ .gnb > li{
+
+    width: calc(100%/4);
+
+    height: 100%;
+
+ }
+
+ .gnb > li > a{
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: start;
+
+    align-items: center;
+
+    font-size: 17px;
+
+    gap: 30px;
+
+     /* background-color: black; */
+
+ }
+
+   .snb{
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: start;
+
+        gap: 10px;
+
+     .snb > li:hover{
+
+        color: rgb(255, 0, 0);
+
+     }      
+
+        }
+
+
+ 
+
+        section{
+
+            width: 100%;
+
+            height: calc(100vh - 95px);
+
+            display: none;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 90px;
+
+            font-weight: bold;
+
+        }
+
+        section.on{
+
+            display: flex;
+
+        }
+
+        #seoga1{
+
+            background-color: chartreuse;
+
+        }
+
+        #seoga2{
+
+            background-color: rgb(255, 196, 0);
+
+        }
+
+        #menu1{
+
+            background-color: aqua;
+
+        }
+
+       
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="nav">
+
+            <div class="logo"><a href="#" onclick="showPage(0)">seoga&cook</a></div>
+
+           
+
+            <ul class="gnb">
+
+                <li>
+
+                    <a href="#" onclick="showPage(0)">서가앤쿡</a>
+
+                    <ul class="snb">
+
+                        <li><a href="#" onclick="showPage(0)">스토리</a></li>
+
+                        <li><a href="#" onclick="showPage(1)">컨셉</a></li>
+
+                    </ul>
+
+                </li>
+
+
+ 
+
+                <li>
+
+                    <a href="#" onclick="showPage(2)">메뉴</a>
+
+                    <ul class="snb">
+
+                        <li><a href="#" onclick="showPage(2)">세트메뉴</a></li>
+
+                        <li><a href="#" onclick="showPage(3)">한정메뉴</a></li>
+
+                        <li><a href="#" onclick="showPage(4)">NEW플레이트</a></li>
+
+                        <li><a href="#" onclick="showPage(5)">ORIGINAL한상</a></li>
+
+                        <li><a href="#" onclick="showPage(6)">스테이크샐러드</a></li>
+
+                        <li><a href="#" onclick="showPage(7)">파히타</a></li>
+
+                        <li><a href="#" onclick="showPage(8)">파스타</a></li>
+
+                        <li><a href="#" onclick="showPage(9)">필라프/리조또</a></li>
+
+                        <li><a href="#" onclick="showPage(10)">피자</a></li>
+
+                        <li><a href="#" onclick="showPage(11)">사이드</a></li>
+
+                        <li><a href="#" onclick="showPage(12)">음료</a></li>
+
+                    </ul>
+
+                </li>
+
+
+ 
+
+                <li>
+
+                    <a href="#" onclick="showPage(13)">매장</a>
+
+                    <ul class="snb">
+
+                        <li><a href="#" onclick="showPage(13)">매장검색</a></li>
+
+                    </ul>
+
+                </li>
+
+
+ 
+
+                <li>
+
+                    <a href="#" onclick="showPage(14)">창업안내</a>
+
+                    <ul class="snb">
+
+                        <li><a href="#" onclick="showPage(14)">브랜드 경쟁력</a></li>
+
+                        <li><a href="#" onclick="showPage(15)">창업절차 및 비용</a></li>
+
+                        <li><a href="#" onclick="showPage(16)">창업 Q&A</a></li>
+
+                        <li><a href="#" onclick="showPage(17)">창업 상담신청</a></li>
+
+                    </ul>
+
+                </li>
+
+
+ 
+
+                 <li>
+
+                    <a href="#" onclick="showPage(18)">고객문의</a>
+
+                    <ul class="snb">
+
+                        <li><a href="#" onclick="showPage(18)">유용한 질문(FAQ)</a></li>
+
+                        <li><a href="#" onclick="showPage(19)">고객의 소리</a></li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+            <div class="ham">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+                <a href="#" onclick="showPage(20)"></a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <div class="fullMenu">
+
+        <div class="closeBtn">X</div>
+
+        <ul class="fullGnb">
+
+            <li>
+
+                <a href="#" onclick="showPage(0)">서가앤쿡</a>
+
+                <ul class="fullSnb">
+
+                    <li><a href="#" onclick="showPage(0)">스토리</a></li>
+
+                    <li><a href="#" onclick="showPage(1)">컨셉</a></li>
+
+                </ul>
+
+            </li>
+
+
+ 
+
+            <li>
+
+                <a href="#" onclick="showPage(2)">메뉴</a>
+
+                <ul class="fullSnb">
+
+                    <li><a href="#" onclick="showPage(2)">세트메뉴</a></li>
+
+                    <li><a href="#" onclick="showPage(3)">한정메뉴</a></li>
+
+                    <li><a href="#" onclick="showPage(4)">NEW플레이트</a></li>
+
+                    <li><a href="#" onclick="showPage(5)">ORIGINAL한상</a></li>
+
+                    <li><a href="#" onclick="showPage(6)">스테이크샐러드</a></li>
+
+                    <li><a href="#" onclick="showPage(7)">파히타</a></li>
+
+                    <li><a href="#" onclick="showPage(8)">파스타</a></li>
+
+                    <li><a href="#" onclick="showPage(9)">필라프/리조또</a></li>
+
+                    <li><a href="#" onclick="showPage(10)">피자</a></li>
+
+                    <li><a href="#" onclick="showPage(11)">사이드</a></li>
+
+                    <li><a href="#" onclick="showPage(12)">음료</a></li>
+
+                    </ul>
+
+            </li>
+
+
+ 
+
+            <li>
+
+                <a href="#" onclick="showPage(13)">매장</a>
+
+                    <ul class="fullSnb">
+
+                    <li><a href="#" onclick="showPage(13)">매장검색</a></li>
+
+                </ul>
+
+            </li>
+
+
+ 
+
+            <li>
+
+                <a href="#" onclick="showPage(14)">창업안내</a>
+
+                <ul class="fullSnb">
+
+                    <li><a href="#" onclick="showPage(14)">브랜드 경쟁력</a></li>
+
+                    <li><a href="#" onclick="showPage(15)">창업절차 및 비용</a></li>
+
+                    <li><a href="#" onclick="showPage(16)">창업 Q&A</a></li>
+
+                    <li><a href="#" onclick="showPage(17)">창업 상담신청</a></li>
+
+                </ul>
+
+            </li>
+
+
+ 
+
+            <li>
+
+                <a href="#" onclick="showPage(18)">고객문의</a>
+
+                <ul class="fullSnb">
+
+                    <li><a href="#" onclick="showPage(18)">유용한 질문(FAQ)</a></li>
+
+                    <li><a href="#" onclick="showPage(19)">고객의 소리</a></li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+
+ 
+
+     <div class="wrap">
+
+        <section id="seoga1" class="on">스토리</section>
+
+        <section id="seoga2">컨셉</section>
+
+        <section id="menu1">세트메뉴</section>
+
+        <section id="menu2">한정메뉴</section>
+
+        <section id="menu3">NEW플레이트</section>
+
+        <section id="menu4">ORIGINAL한상</section>
+
+        <section id="menu5">스테이크셀러드</section>
+
+        <section id="menu6">파히타</section>
+
+        <section id="menu7">파스타</section>
+
+        <section id="menu8">필라프/리조또</section>
+
+        <section id="menu9">피자</section>
+
+        <section id="menu10">사이드</section>
+
+        <section id="menu11">음료</section>
+
+        <section id="place1">매장검색</section>
+
+        <section id="creat1">브랜드 경쟁력</section>
+
+        <section id="creat2">창업절차 및 비용</section>
+
+        <section id="creat3">창업 Q&A</section>
+
+        <section id="creat4">창업 상담신청</section>
+
+        <section id="knock1">유용한 질문(FAQ)</section>
+
+        <section id="knock2">고객의 소리</section>
+
+        <section id="knock3">햄버거바</section>
+
+    </div>
+
+    <script>
+
+        let gnb=document.querySelector(".gnb")
+
+        let nav=document.querySelector(".nav")
+
+        let ses=document.querySelectorAll(".wrap>section")
+
+        let Ses=document.querySelectorAll(".fullGnb>.fullSnb")
+
+
+ 
+
+        let ham=document.querySelector(".ham")
+
+        let fullMenu=document.querySelector(".fullMenu")
+
+        let closeBtn=document.querySelector(".closeBtn")
+
+
+ 
+
+        gnb.addEventListener("mouseenter", function(){
+
+            nav.classList.add("on")
+
+        })
+
+
+ 
+
+        gnb.addEventListener("mouseleave", function(){
+
+            nav.classList.remove("on")
+
+        })
+
+
+ 
+
+       ham.addEventListener("click", function(){
+
+            ham.classList.toggle("on")
+
+            fullMenu.classList.toggle("on")
+
+        })
+
+        closeBtn.addEventListener("click", function(){
+
+            ham.classList.remove("on")
+
+            fullMenu.classList.remove("on")
+
+        })
+
+        function showPage(num){
+
+            ses.forEach(function(item){
+
+               item.classList.remove("on")
+
+            })
+
+            ses[num].classList.add("on")
+
+            ham.classList.remove("on")
+
+            fullMenu.classList.remove("on")
+
+        }
+
+    </script>
+
+</body>
+
+</html>

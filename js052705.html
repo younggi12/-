@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .wrap{
+            width: min(1200px, 95%);
+            margin: 10px auto;
+            display: grid;
+            gap: 30px;
+        }
+
+        .box{
+            background-color: #ccc;
+        }
+
+        .top{
+            height: 70px;
+        }
+
+        .grid4{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .small{
+            height: 50px;
+        }
+
+        .middle{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .leftbox{
+            height: 110px;
+            background-color: pink;
+        }
+
+        .rightbox{
+            height: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rightsmall{
+            height: 50px;
+        }
+
+        .bottom{
+            height: 70px;
+        }
+       
+        
+        /* 테블릿 버전*/
+        @media(max-width:1200px){
+
+            .grid4{
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .middle{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .leftbox{
+                order: 2;
+                height: 50px;
+
+            }
+
+            .rightbox{
+                order: 1;
+            }
+        }
+
+        /* 모바일 버전*/
+        @media(max-width:600px){
+            
+            .top{
+                margin-bottom: 50px;
+            }
+
+            .grid4{
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .leftbox{
+                order: 1;
+                height: 50px;
+                background-color: gold;
+
+            }
+
+            .rightbox{
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box top"></div>
+        <div class="box top"></div>
+        <div class="grid4">
+            <div class="box small"></div>
+            <div class="box small"></div>
+            <div class="box small"></div>
+            <div class="box small"></div>
+        </div>
+        <div class="middle">
+            <div class="leftbox"></div>
+            <div class="rightbox ">
+                <div class="box rightsmall"></div>
+                <div class="box rightsmall"></div>
+            </div>
+        </div>
+        <div class="box bottom"></div>
+    </div>
+</body>
+</html>

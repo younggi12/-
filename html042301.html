@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  칸: TD  줄: TR 줄부터   -->
+    <!-- table 나오면 필수적 border-collapse: collapse
+    < th 나는 제목 -->
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th{
+            background-color: skyblue;
+            border: 1px solid red;
+            padding: 10px;
+        }
+        tr,td{
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>   
+    <table>
+     <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>국어성적</th>
+        <th>영어성적</th>
+     </tr>
+
+     <tr>
+        <td>1</td>
+        <td>홍길동</td>
+        <td>100</td>
+        <td>10</td>
+     </tr>
+
+      <tr>
+        <td>2</td>
+        <td>이순신</td>
+        <td>100</td>
+        <td>10</td>
+     </tr>
+    
+    </table>
+</body>
+</html>

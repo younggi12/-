@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <div class="outBox1">
+        <input type="text" id="name" placeholder="이름" />
+        <input type="age"  id="age"  placeholder="나이" />
+        <button onclick="years()">입력</button>
+        <div id="dis"></div>
+
+    <script>
+     function checkyears(n,y){
+            let result = ``
+        if( y >= 20){
+               result = `${n}님 ${y}살 성인입니다`
+        }else{
+               result = `${n}님 ${y}살 미성년자입니다`
+        }
+        return result
+    }
+        function years(){
+            let name = document.querySelector("#name").value
+            let age = Number(document.querySelector("#age").value) 
+            let result = checkyears(name, age)
+            document.querySelector("#dis").innerHTML = result
+        }
+    </script>
+</body>
+</html>

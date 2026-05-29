@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gnb, sub, fullmenu, observe</title>
+    <link rel="stylesheet" href="./reset.css" >
+    <style>
+      header{
+        width: 100%;
+        height: 90px;
+      }
+
+      .nav{
+        position: fixed;
+        left: 0; top: 0;
+        width: 100%;
+        height: 90px;
+        background-color: darkblue;
+        color: white;
+        display: flex;
+        justify-content: center; /* 가로 가운데 */
+        /* align-items: start; // 세로 가운데 */
+        transition: all 0.3s;
+        overflow: hidden;
+        z-index: 10;
+
+      }
+      .nav.on{
+        height: 490px;
+      }
+      .logobox{
+        width: 10%;
+        height: 90px;
+        /* background-color: pink; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 45px;
+        font-weight: bold;
+      }
+      .gnb{
+        width: 70%;
+        height: 90px;
+        /* background-color: skyblue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .gnb > li {
+        width: calc(95%/3);
+        height: 90px;
+        /* background-color: gold; */
+        /* display: flex;
+        flex-direction: column; */
+        /* justify-content: center; */
+        /* align-items: center; */
+      }
+      .gnb > li > a {
+        width: 100%;
+        height: 90%;
+        /* background-color: gold; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .snb{
+          margin-top: 20px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+      }
+      section{
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        font-size: 70px;
+      }
+      #se01{background-color: pink;}
+      #se02{background-color: skyblue;}
+      #se03{background-color: gold;}
+      #se04{background-color: lightcoral;}
+      #se05{background-color: lightgreen;}
+      #se06{background-color: gold;}
+      #se07{background-color: lightblue;}
+      #se08{background-color: lightgreen;}
+      #se09{background-color: lightpink;}
+      #se10{background-color: lightcoral;}
+
+      section.on{
+        display: flex;
+      }
+      .closebtn{
+        position: absolute;
+        right: 170px;
+        top: 45px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        /* border: 1px solid red; */
+        cursor: pointer;
+      }
+
+    </style>
+</head>
+<body>
+   <header>
+
+      <nav class="nav">
+        <div class="logobox">
+            <a href="#" onclick="onpage(0)">logo</a>
+        </div>
+        <ul class="gnb">
+                    <li><a href="#" onclick="onpage(0)">회사소개</a> 
+                    <ul class="snb">
+                     <li><a href="#" onclick="onpage(1)">회사연혁</a></li>
+                     <li><a href="#" onclick="onpage(2)">회사기술</a></li>
+                </ul>
+                </li>
+                
+                    <li><a href="#" onclick="onpage(3)">상품</a>
+                    <ul class="snb">
+                     <li><a href="#" onclick="onpage(4)">마스크</a></li>
+                     <li><a href="#" onclick="onpage(5)">의류</a></li>
+                </ul>
+                </li>
+
+                    <li><a href="#" onclick="onpage(6)">회사위치</a>
+                    <ul class="snb">
+                     <li><a href="#" onclick="onpage(7)">오시는길</a></li>
+                </ul>
+                </li>
+
+                    <li><a href="#" onclick="onpage(8)">고객문의</a>
+                    <ul class="snb">
+                     <li><a href="#" onclick="onpage(9)">문의사항</a></li>
+                </ul>
+                </li>
+
+               </ul>
+        </nav>
+   </header>
+
+        
+              <div class="swrap">
+          <section id="se01" class="on">   
+                회사소개 
+          </section>
+
+          <section id="se02">   
+                회사연혁  
+          </section>
+
+          <section id="se03">   
+                회사기술 
+          </section>
+
+          <section id="se04">   
+                상품
+          </section>
+
+          <section id="se05">   
+                마스크
+          </section>
+
+          <section id="se06">   
+                의류
+          </section>
+
+          <section id="se07">   
+                회사위치 
+          </section>
+
+          <section id="se08">   
+                오시는길 
+          </section>
+
+          <section id="se09">   
+                고객문의
+          </section>
+
+          <section id="se10">   
+                문의사항
+          </section>
+
+      </div>
+
+
+    <script>
+    let gnb = document.querySelector(".gnb")
+    let nav = document.querySelector(".nav")
+    let sections = document.querySelectorAll(".swrap > section")
+    gnb.addEventListener("mouseenter", function(){
+        nav.classList.add("on")
+    })
+
+     gnb.addEventListener("mouseleave", function(){
+        nav.classList.remove("on")
+    })
+
+    function onpage(num){
+        sections.forEach(function(item){
+           item.classList.remove("on")
+        })
+
+         sections[num].classList.add("on")
+    }
+    </script>
+
+
+</body>
+</html>

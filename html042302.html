@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    
+    <style>
+        *{margin: 0; padding: 0;}
+        tr,td{
+            font-family: "Black And White Picture", system-ui;
+        }
+
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+        img{
+            display: block; /* w. h 가능 한 줄에 다른 태그가 올수 없음
+            /* display: inline;  w.h 불가, 한 줄에 다른 태그가 올수 있음
+            /* display: inline-block; */ 
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 10px auto;
+        }
+        table{
+            width: 500px;
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: 10px auto;
+        }
+        th{
+            background-color: darkgreen;
+            color: white;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        tr,td{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            
+
+        }
+
+        .lightgreen{
+            background-color: lightgreen;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>채소 &nbsp;소개표</h1>
+    <img src="./iMG/veg.png" alt="채소"/>
+    <table>
+    <tr>
+        <th>채소</th>
+        <th>특징</th>   
+    </tr>
+    <tr class="lightgreen">
+        <td>당근</td>
+        <td>비타민 풍부</td>
+    </tr>
+    <tr>
+        <td>시금치</td>
+        <td>철분과 미네랄 풍부</td>
+    </tr>
+
+    <tr class="lightgreen">
+        <td>브로콜리</td>
+        <td>항산화 성분 가득</td>
+    </tr>
+    </table>
+</body>
+</html>

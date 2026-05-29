@@ -1,0 +1,160 @@
+3개 보이는 가운데 중심 슬라이드
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3개 보이는 가운데 중심 슬라이드</title>
+    <link rel="stylesheet" href="./reset.css" >
+    <style>
+        .wrap{
+            width: 900px;
+            padding: 20px;
+            margin: 30px auto;
+            border: 2px solid black;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .slider{
+            display: flex;
+            /* transform: translateX(-300px); */
+            /* 0*-300, 1*-300, 2*-300, 3*-300, 4*-300 */
+        }
+
+        .slide{
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+        .slide.on{
+            transform: scale(1);
+            opacity: 1;
+        }
+        .slide img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        button:hover{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="slider" id="slider"></div>
+        <button class="prev" onclick="prevSlide()">&lt;</button>
+        <button class="next" onclick="nextSlide()">&gt;</button>
+    </div>
+
+    <script>
+        class ImgSlider{
+            constructor(imgs){
+                this.imgs = imgs
+                this.index = 0
+                this.size = 300
+                this.slider = document.querySelector("#slider")
+                
+                this.prevBtn = document.querySelector(".prev")
+                this.nextBtn = document.querySelector(".next")
+            }
+
+            makeSlide(){
+                let html = ''
+                this.imgs.forEach(function(item){
+                    html += `
+                        <div class="slide">
+                            <img src="${item}">
+                        </div>
+                    `
+                })
+
+                 this.slider.innerHTML = html
+                 this.updateBtn()
+                 this.updateOn()
+            }
+
+            move(){
+                // transform : translateX(-300px);
+                // 0*-300, 1*-300, 2*-300, 3*-300, 4*-300 
+                this.slider.style.transform = 
+                `translateX(-${this.index * this.size}px)`
+
+                this.updateBtn()
+                this.updateOn()
+            }
+
+            next(){
+                // 마지막 이미지이면 실행을 안함
+                if(this.index >= this.imgs.length-1){
+                    return
+                }
+                this.index++
+                this.move()
+            }
+
+            prev(){
+                // 첫번째 이미지 이면 실행 안함
+                if(this.index <= 0){
+                    return
+                }
+                this.index--
+                this.move()
+            }
+
+            updateBtn(){
+                   //    true(작동안함), flase(작동함)
+                this.nextBtn.disabled = this.index === this.imgs.length-1
+
+                this.prevBtn.disabled = this.index === 0
+            }
+
+            updateOn(){
+                let slides = document.querySelectorAll(".slide")
+
+                slides.forEach(function(item){
+                     item.classList.remove("on")   
+                })
+
+                slides[this.index]?.classList.add("on")
+            }
+        }
+
+        let slideImgs =[
+            "./iMG/park1.jfif",
+            "./img/park2.jpg",
+            "./img/park3.jpg",
+            "./img/park4.webp",
+            "./img/park5.jpg"
+        ]
+
+        let mySlider = new ImgSlider(slideImgs)
+
+        mySlider.makeSlide()
+
+        function prevSlide(){
+            mySlider.prev()
+        }
+
+        function nextSlide(){
+            mySlider.next()
+        }
+    </script>
+</body>
+</html>

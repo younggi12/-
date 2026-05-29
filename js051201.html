@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" >
+    
+    <style>
+        .outbox{
+            width: 250px;
+            height: 100px;
+            overflow: hidden;
+            background-color: darkblue;
+            border-radius: 5px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+
+        h2{
+            text-align: center;
+        }
+        #day{
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+
+        #clock{
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+   <h2>디지털시계</h2>
+
+   <div class="outbox">
+   <div id="day">여기는 년, 월, 일, 요일 나타나는 자리</div>
+   <div id="clock">여기는 시간, 분, 초 나타나는 자리</div>
+   </div>
+
+    <script>
+        let clock = document.querySelector("#clock")
+        let day = document.querySelector("#day")
+
+        function nows(){
+            let today = new Date()
+            let year = today.getFullYear()
+            let mon = today.getMonth() // 0~11까지 수자 발생 
+            let da = today.getDate()
+            let sun = today.getDay() // 0~6까지 0 일요일, 6 토요일 숫자를 발생
+            let hh = today.getHours() // 24시제 
+            let mm = today.getMinutes()
+            let ss = today.getSeconds()
+            let kk = ''
+            switch(sun){
+                case 0 :
+                  kk = "일요일"
+                  break;
+                case 1 :
+                  kk = "월요일"
+                  break;
+                  case 2 :
+                  kk = "화요일"
+                  break;
+                  case 3 :
+                  kk = "수요일"
+                  break
+                  case 4 :
+                  kk = "목요일"
+                  break;
+                  case 5 :
+                  kk = "금요일"
+                  break;
+                  case 6 :
+                  kk = "토요일"
+                  break;
+            }
+            let aa = ''
+            if( hh > 12){
+                aa = "오후"
+                hh = hh - 12
+            }else if( hh == 12){
+                aa = "오후"
+            }else{
+                aa = "오전"
+            }
+            hh = hh >= 10 ? hh : `0${hh}`
+            mm = mm >= 10 ? mm : `0${mm}`
+            ss = ss >= 10 ? ss : `0${ss}`
+
+            day.innerHTML = `${year}년 ${mon+1}월 ${da}일  ${kk}`
+            clock.innerHTML = `${aa} ${hh}: ${mm}: ${ss}`
+        }
+
+        setInterval(nows, 1000 )
+    </script>
+</body>
+</html>

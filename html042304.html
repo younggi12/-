@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  <td colspan="2">03</td> 열 합치기 -->
+    <!--  rowspan 세로 칸 합치기  -->
+</head>
+<style>
+    table{
+        border: 1px solid black;
+        border-collapse: collapse;
+        height: 200px;
+
+    }
+    
+    th,tr,td{
+        text-align: center;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+    
+    th{
+        background-color: red;
+        color: white;
+    }
+     
+    .red{
+        color: red;
+        font-weight: 600;
+    }
+</style>
+<body>
+    <table>
+    <tr>
+        <th colspan="2">구분</th>
+        <th>대상</th>
+        <th>할인율</th>
+        <th>비고</th>
+    </tr>
+    <tr>
+        <td colspan="2">조기신청</td>
+        <td>2026년 8월 7일(금) 이전 신청자</td>
+        <td class="red">20%</td>
+        <td rowspan="3" class="red">최대할인율 30%</td>
+    </tr>
+      <tr>
+        <td rowspan="2">추가할인</td>
+        <td>학생</td>
+        <td>2026년 8월 7일(금) 이전 신청자</td>
+        <td class="red">20%</td>
+    </tr>
+      <tr>
+        <td>기참가</td>
+        <td>2026년 8월 7일(금) 이전 신청자</td>
+        <td class="red">20%</td>
+    </tr>
+    </table>
+</body>
+</html>

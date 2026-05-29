@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card image{
+            width: 100%;
+            height: 250px;
+        }
+        .card p{
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .card h3{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="dis"></div>
+
+    <script>
+        function loaditem(){
+            return fetch( "data2.json" )
+
+            .then( (res) =>{
+                return res.json()
+            })
+        }
+
+        loaditem()
+
+        .then( (data2) =>{
+            let dis = document.querySelector("#dis")
+            let html = ''
+            data2.forEach( (item) =>{
+                html += ` 
+                    <div class="card">
+                            <img src="${item.image}"/>
+                    <div class="textbox">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p> 
+                    </div>
+                    </div>
+                ` 
+            })
+            dis.innerHTML = html
+        })
+
+        .catch( (err) =>{
+            console.error( "전송 오류", err)
+        })
+    </script>
+</body>
+</html>

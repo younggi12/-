@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- 숫자맞추기 게임을 만들어보자
+     1에서 10까지 숫자를 입력받아
+     컴퓨터가 발생한 숫자와 동일하면 "빙고"
+     컴퓨터가 발생한 숫자가 내가 입력한 숫자 보다 크면
+     "큰 숫자가 필요해요"
+     그렇지 않으면 "작은 숫자가 필요해요"가 출력
+     빙고가 될때가지 찬스는 5번
+     찬스가 끝나면 버튼 클릭못하게 할것
+     랜덤함수를 활용
+     btn.disabled = true
+    -->
+</head>
+<h2>빙고게임</h2>
+<body>
+    <input type="number" placeholder="숫자" id="innum"/>
+    <button id="btn" onclick="ok()">확인</button>
+
+    <div class="outbox"></div>
+
+    <script>
+
+        // 랜덤 함수로 1~10 사이 정수 생성
+    let secret = Math.floor(Math.random() * 10) + 1;
+    let chance = 5;
+
+    function ok() {
+        // 버튼 클릭할 때마다 입력값을 읽어야 함 (함수 안으로 이동)
+        let innum = Number(document.querySelector("#innum").value);
+        let outbox = document.querySelector(".outbox");
+        let btn = document.querySelector("#btn");
+
+        // 찬스 1 감소
+        chance--;
+
+        if (innum === secret) {
+            outbox.innerHTML = `빙고!`;
+            btn.disabled = true;  // 빙고 → 버튼 비활성화
+
+        } else if (secret > innum) {
+            outbox.innerHTML = `큰 숫자가 필요해요 (남은 찬스: ${chance}번)`;
+
+        } else {
+            outbox.innerHTML = `작은 숫자가 필요해요 (남은 찬스: ${chance}번)`;
+        }
+
+        // 찬스 5번 소진 → 버튼 비활성화
+        if (chance === 0) {
+            outbox.innerHTML = `게임오버! 정답은 ${secret} 이었어요.`;
+            btn.disabled = true;  // 찬스 소진 → 버튼 비활성화
+        }
+    }    
+    </script>
+</body>
+</html>

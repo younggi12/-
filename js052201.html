@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        /* warp 오버히든 넘치는거는 보여주지마  
+        부모가 플렉스 트렌스x 왼쪽으로 부모크기만큼 이동 -800px */
+        .wrap{
+            width: 800px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+        .slider{
+            display: flex;
+            /* transform: translateX(-1600px); */
+
+        }
+        .slide{
+            width: 800px;
+            height: 450px;
+            flex-shrink: 0;
+        }
+        .slide img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button{
+            width: 50px; 
+            height: 50px;
+            background-color: white;
+            border-radius: 50%; 
+            border: 1px solid #333;
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+        .prev{left:20px;}
+        .next{right:20px;}
+    </style>
+</head>
+<body>
+   <div class="wrap">
+    <h2>이미지 슬라이드</h2>
+       <div class="slider" id="slider">
+           
+       </div> 
+       <button class="prev" onclick="prevSlide()">&lt;</button>
+       <button class="next" onclick="nextSlide()">&gt;</button>
+   </div>
+
+   <script>
+     class BasicSlider{
+        constructor(imgs){
+            this.imgs = imgs
+            this.index = 0
+            this.size = 800
+            this.slider = document.querySelector("#slider")
+        }
+
+        makeSlide(){
+            let html = ''
+            this.imgs.forEach(function(item){
+                html += `
+                    <div class="slide">
+                        <img src="${item}" >
+                    </div>
+                `
+            })
+            this.slider.innerHTML = html 
+        }
+
+        move(){
+            this.slider.style.transform = `translateX(-${this.index * this.size}px)`
+        }
+
+        next(){
+            this.index++
+            if(this.index >= this.imgs.length){
+                this.index = 0
+            }
+            this.move()
+        }
+
+        prev(){
+          this.index--
+          if(this.index  < 0){
+              this.index = this.img.length - 1
+            }
+          this.move()
+        }
+     }
+
+     let slideimg = [
+        "./iMG/park2.jpg",
+        "./iMG/park3.jpg",
+        "./iMG/park4.webp"
+     ]
+
+     let myslider = new BasicSlider(slideimg)
+
+     myslider.makeSlide()
+
+     function prevSlide(){
+        myslider.prev()
+     }
+
+     function nextSlide(){
+        myslider.next()
+     }
+   </script>
+</body>
+</html>

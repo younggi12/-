@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h2>포인트 관리 시스템</h2>
+
+    <div id="nowPoint">현재 포인트</div>
+
+    <div id="outBox">
+
+        <button id="addBtn">적립(+10점)</button>
+
+        <button id="misBtn">사용(-30점)</button>
+
+        <button id="checkBtn">확인</button>
+
+    </div>
+
+    <div id="outBox2">
+
+        <h3>적립 및 사용 내역</h3>
+
+        <ul id="list"></ul>
+
+    </div>
+
+
+ 
+
+    <script>
+
+        let nowPoint = document.querySelector('#nowPoint')
+
+        let addBtn = document.querySelector('#addBtn')
+
+        let misBtn = document.querySelector('#misBtn')
+
+        let checkBtn = document.querySelector('#checkBtn')
+
+        let list = document.querySelector('#list')
+
+
+ 
+
+        let point = 0
+
+        let pointSystem = function(){
+
+            return {
+
+                calcul : function(num){
+
+                    point += num
+
+                    console.log(point)
+
+                },
+
+                check : function(){
+
+                    let total = `현재 포인트 : ${point}`
+
+                    console.log(total)
+
+                    nowPoint.innerHTML = total
+
+                }
+
+            }
+
+        }
+
+
+ 
+
+        let pointmanager = pointSystem()
+
+
+ 
+
+        addBtn.addEventListener('click',function(){
+
+            pointmanager.calcul(10)
+
+            list.innerHTML += '<li>10점 적립됨</li>'
+
+        })
+
+        misBtn.addEventListener('click',function(){
+
+            if(point>=30){
+
+                list.innerHTML += '<li>30점 사용됨</li>'
+
+                pointmanager.calcul(-30)
+
+            }else{
+
+                list.innerHTML += '<li>포인트가 부족하여 사용되지 않음</li>'
+
+            }
+
+        })
+
+        checkBtn.addEventListener('click',function(){
+
+            pointmanager.check()
+
+        })
+
+
+ 
+
+    </script>
+
+</body>
+
+</html>

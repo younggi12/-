@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        /* warp 오버히든 넘치는거는 보여주지마  
+        부모가 플렉스 트렌스x 왼쪽으로 부모크기만큼 이동 -800px */
+        .container {
+            width: 800px;
+            margin: 150px auto;
+            position: relative;  
+            padding-bottom: 80px; 
+        }
+        body{
+            background-color: black;
+        }
+        .wrap{
+            width: 800px;
+            border-radius: 25px;
+            border: 2px solid #333;
+            overflow: hidden;
+            background-color: black;
+        }
+        h1{
+            position: absolute;
+            right: 54%; top: 8%;
+            color: white;
+            font-size: 30px;
+        }
+        h2{
+            position: absolute;
+            right: 62%; top: 90%;
+            color: white;
+            font-size: 15px;
+        }
+        h3{
+            position: absolute;
+            right: 30%; top: 90%;
+            color: gray;
+            font-size: 15px;
+        }
+
+        .slider{
+            display: flex;
+            transition: 0.3s all;
+
+        }
+        .slide{
+            width: 800px;
+            height: 700px;
+            flex-shrink: 0;
+        }
+        .slide img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        button{
+            width: 40px; 
+            height: 40px;
+            background-color: gray;
+            color: white;
+            border-radius: 50%; 
+            border: 1px solid #333;
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            transform: translateY(-30%);
+            top: 50%;
+        }
+        .prev{
+            left: 690px;   
+            top: auto;     
+            bottom: -30px;   
+        }   
+        .next{ 
+            left: 760px;    
+            top: auto;
+            bottom: -30px;   
+        }  
+    </style>
+</head>
+<body>
+    <h1>픽셀 하나하나, 프로답게.</h1>
+    <h2>저조도 사진 및 야간 모드.</h2>
+    <h3>어두운 곳에서도 또렷하고 디테일이 살아있는, 밝고 자연스러운 색감의 사진을 촬영할 수 있습니다.</h3>
+    <div class="container"> 
+   <div class="wrap">
+       <div class="slider" id="slider">
+           
+           </div>
+           <button class="prev" onclick="prevSlide()">&lt;</button>
+           <button class="next" onclick="nextSlide()">&gt;</button>
+       </div> 
+       
+   </div>
+
+   <script>
+     class BasicSlider{
+        constructor(imgs){
+            this.imgs = imgs
+            this.index = 0
+            this.size = 800
+            this.slider = document.querySelector("#slider")
+        }
+
+        makeSlide(){
+            let html = ''
+            this.imgs.forEach(function(item){
+                html += `
+                    <div class="slide">
+                        <img src="${item}" >
+                    </div>
+                `
+            })
+            this.slider.innerHTML = html 
+        }
+
+        move(){
+            this.slider.style.transform = `translateX(-${this.index * this.size}px)`
+        }
+
+        next(){
+            this.index++
+            if(this.index >= this.imgs.length){
+                this.index = 0
+            }
+            this.move()
+        }
+
+        prev(){
+          this.index--
+          if(this.index  < 0){
+              this.index = this.img.length - 1
+            }
+          this.move()
+        }
+     }
+
+     let slideimg = [
+        "./iMG/iphone1.jpg",
+        "./iMG/iphone2.jpg",
+        "./iMG/iphone3.jpg",
+        "./iMG/iphone4.jpg",
+        "./iMG/iphone5.jpg",
+     ]
+
+     let myslider = new BasicSlider(slideimg)
+
+     myslider.makeSlide()
+
+     function prevSlide(){
+        myslider.prev()
+     }
+
+     function nextSlide(){
+        myslider.next()
+     }
+   </script>
+</body>
+</html>

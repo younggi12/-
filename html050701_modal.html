@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" >
+    <style>
+
+        .wrap{
+            width: 60%;
+            height: 90vh;
+            /* background-color: skyblue; */
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        .bigbox{
+            width: 70%;
+            height: 60%;
+            border: 1px solid #999;
+            border-radius: 10px;
+            overflow: hidden;
+            /* background-color: pink; */
+        }
+
+        .bigbox img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .smallbox{
+            width: 50%;
+            height: 15%;
+            /* background-color: gold; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        .smallimgs{
+            width: 40%;
+            height: 90%;
+            /* background-color: blue; */
+            overflow: hidden;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            border-radius: 5px;
+        }
+
+        .smallimgs img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="bigbox">
+            <img id="bigimg" src="./iMG/park1.jfif" alt="큰이미지">
+        </div>
+
+        <div class="smallbox">
+            <div class="smallimgs">
+                <img src="./iMG/park2.jpg" alt="작은이미지2"/>
+            </div>
+
+            <div class="smallimgs">
+                <img src="./iMG/park3.jpg" alt="작은이미지3"/>
+            </div>
+
+            <div class="smallimgs">
+                <img src="./iMG/park4.webp" alt="작은이미지4"/>
+            </div>
+
+            <div class="smallimgs">
+                <img src="./iMG/park5.jpg" alt="작은이미지5"/>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+      let bigimg = document.querySelector("#bigimg")
+      let smallimgs = document.querySelectorAll(".smallimgs img")
+
+      smallimgs.forEach(function(item){
+        item.addEventListener("click", function(){
+            bigimg.src = item.src
+        })
+      })
+
+
+    </script>
+</body>
+</html>

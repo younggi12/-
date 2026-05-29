@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ``: 한번에 묶어줌 변수는 ${} <<== 안에 넣기 -->
+     <!-- ---------------------------------------------------------------------------- -->
+    <!--  oddsum[0] -->
+    <!--  oddsum[1] -->
+    <!--  oddsum.length : 배열의 갯수 : 5 -->
+    <script>
+
+        let row = Number(prompt("몇 행 하시겠습니까? 숫자로 넣어주세요"))
+        let col = Number(prompt("몇 열 하시겠습니까? 숫자로 넣어주세요"))
+        for(let i = 1 ; i <= row ; i++){
+            for(let j=1; j<=col; j++){
+                document.write("*")
+            }
+            document.write(`<br>`)
+        }
+         
+
+    </script>
+</body>
+</html>

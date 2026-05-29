@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h2>계산기</h2>
+
+    <input id="num1" type="number" placeholder="첫번째 숫자를 입력하세요" />
+
+    <input id="num2" type="number" placeholder="두번째 숫자를 입력하세요" />
+
+    <button onclick="add('+')">덧셈결과</button>
+
+    <button onclick="minus('-')">뺼셈결과</button>
+
+    <button onclick="mul('*')">곱셈결과</button>
+
+    <button onclick="div('/')">나눗셈결과</button>
+
+    <div id="dis"></div>
+
+    <script>
+
+   let dis = document.querySelector("#dis");
+
+
+ 
+
+function add(){
+
+    let num1 = Number(document.querySelector("#num1").value);
+
+    let num2 = Number(document.querySelector("#num2").value);
+
+    let result = num1 + num2;
+
+    dis.innerHTML = `${num1} + ${num2} = ${result}`;
+
+}
+
+
+ 
+
+function minus(){
+
+    let num1 = Number(document.querySelector("#num1").value);
+
+    let num2 = Number(document.querySelector("#num2").value);
+
+    let result = num1 - num2;
+
+    dis.innerHTML = `${num1} - ${num2} = ${result}`;
+
+}
+
+
+ 
+
+function mul(){
+
+    let num1 = Number(document.querySelector("#num1").value);
+
+    let num2 = Number(document.querySelector("#num2").value);
+
+    let result = num1 * num2;
+
+    dis.innerHTML = `${num1} * ${num2} = ${result}`;
+
+}
+
+
+ 
+
+function div(){
+
+    let num1 = Number(document.querySelector("#num1").value);
+
+    let num2 = Number(document.querySelector("#num2").value);
+
+    let result = num1 / num2;
+
+    dis.innerHTML = `${num1} / ${num2} = ${result}`;
+
+}
+
+</script>
+
+</body>
+
+</html>
